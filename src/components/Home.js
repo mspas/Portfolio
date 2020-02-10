@@ -7,7 +7,7 @@ import lin from "../assets/lin-ico.png";
 function Home() {
   return (
     <div className="home-section">
-      <div className="angle-divider-wrap home-desc-divider">
+      <div className="home-desc-divider">
         <div className="home-desc-wrap">
           <h3 className="home-desc">
             Hi, I'm Marcin Spasiński - computer science{" "}
@@ -33,7 +33,7 @@ function Home() {
         </div>
       </div>
       <div className="angle-divider-wrap home-history-divider">
-        <div className="container">
+        <div className="container center" style={{ height: 500 }}>
           <h2 className="home-history">also big history nerd...</h2>
         </div>
       </div>

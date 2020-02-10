@@ -29,6 +29,14 @@ $descWidth: 70vw
   position: relative
   max-width: 100vw
 
+.angle-divider-wrap::before
+  position: absolute
+  width: 100vw
+  height: 200px
+  content: ""
+  background-color: inherit
+  left: 0
+
 .angle-divider-wrap::after
   position: absolute
   width: 100vw
@@ -39,7 +47,6 @@ $descWidth: 70vw
 
 
 .home-desc-divider
-  z-index: 0
   background-color: $black
   text-align: center
   width: 100vw
@@ -58,19 +65,25 @@ $descWidth: 70vw
         color: $reddirty !important
 
 
-.home-desc-divider::after
-  z-index: -1
-  top: 80vh
-  transform-origin: top left
-  transform: skewY(4deg)
+//.home-desc-divider::after
+//  z-index: -1
+//  top: 80vh
+//  transform-origin: top left
+//  transform: skewY(4deg)
 
 
 .home-history-divider
-  z-index: -1
+  z-index: 2
   background-color: $yellowish
   text-align: center
   width: 100vw
-  height: 60vh
+
+.home-history-divider::before
+  z-index: -1
+  bottom: 400px
+  transform-origin: top left
+  transform: skewY(4deg)
+
 
 .home-history-divider::after
   z-index: -1
@@ -80,7 +93,6 @@ $descWidth: 70vw
 
 
 .home-history
-  padding-top: 25vh
   font-family: "Almendra SC", serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
