@@ -1,0 +1,54 @@
+@import "../_animations"
+@import "../_variables"
+
+.projects-section
+    width: 100vw
+    min-height: 100vh
+    background-color: $greendirty
+
+.slider-btn
+    margin: 0 200px
+    font-size: 40px
+    color: #ffffff77
+    &:hover
+        color: #ffffff
+
+.wrapper
+    position: relative
+    height: 300px
+    width: 630px
+    .slider
+        position: relative
+        height: 300px
+        width: 630px 
+        transform-style: preserve-3d
+        //transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
+        transition: transform 0.3s
+        &:hover
+           // transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
+        .slide
+            transform-style: preserve-3d
+
+        .slide-left, .slide-right, .slide-center
+            position: absolute
+            height: 300px
+            width: 630px
+            background-color: $yellowish
+            backface-visibility: hidden
+        .slide-center
+            transform: translateZ(315px)
+            box-shadow: 3px 3px 17px 10px black
+        .slide-left
+            left: 0
+            top: 0
+            transform: rotateY(-90deg) translateZ(315px)
+        .slide-right
+            right: 0
+            top: 0
+            transform: rotateY(90deg) translateZ(315px)
+
+.animationSlideLeft
+    transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
+            
+.animationSlideRight
+    transform: perspective(1000px) rotate3d(0, 1, 0, -90deg)
