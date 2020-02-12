@@ -45,40 +45,70 @@ class SkillBox extends React.Component {
   }
 
   onLeftSlide = ev => {
-    this.setState(
-      {
-        leftSlide: this.state.projects[this.state.activeProject - 1], //oof
-        activeSlide: this.state.projects[this.state.activeProject - 1],
-        rightSlide: this.state.projects[this.state.activeProject]
-      },
-      () => {
-        this.setState({
-          activeProject: this.state.activeProject - 1
-        });
-        document
-          .getElementById("slider")
-          .setAttribute("class", "slider animationSlideLeft");
-      }
-    );
+    let activeId = this.state.activeProject;
+    let min = activeId < 2 ? 0 : activeId - 2;
+
+    if (activeId > 0) {
+      document
+        .getElementById("slider")
+        .setAttribute("class", "slider animationSlideLeft");
+      setTimeout(() => {
+        this.setState(
+          {
+            leftSlide: this.state.projects[min],
+            activeSlide: this.state.projects[activeId - 1],
+            rightSlide: this.state.projects[activeId],
+            activeProject: activeId - 1
+          },
+          () => {
+            document.getElementById("slider").setAttribute("class", "slider");
+          }
+        );
+      }, 1000);
+    }
   };
 
   onRightSlide = ev => {
-    this.setState(
-      {
-        leftSlide: this.state.projects[this.state.activeProject],
-        activeSlide: this.state.projects[this.state.activeProject + 1],
-        rightSlide: this.state.projects[this.state.activeProject + 1] //oof
-      },
-      () => {
-        this.setState({
-          activeProject: this.state.activeProject + 1
-        });
-        document
-          .getElementById("slider")
-          .setAttribute("class", "slider animationSlideRight");
-      }
-    );
+    let activeId = this.state.activeProject;
+    let max =
+      activeId > this.state.projects.length - 3 ? activeId + 1 : activeId + 2;
+
+    if (activeId < this.state.projects.length - 1) {
+      document
+        .getElementById("slider")
+        .setAttribute("class", "slider animationSlideRight");
+      setTimeout(() => {
+        this.setState(
+          {
+            leftSlide: this.state.projects[activeId],
+            activeSlide: this.state.projects[activeId + 1],
+            rightSlide: this.state.projects[max],
+            activeProject: activeId + 1
+          },
+          () => {
+            document.getElementById("slider").setAttribute("class", "slider");
+          }
+        );
+      }, 1000);
+    }
   };
+
+  componentDidUpdate() {
+    this.setButtonActive("btn-left");
+    this.setButtonActive("btn-right");
+
+    if (this.state.activeProject < 1) this.setButtonDisabled("btn-left");
+
+    if (this.state.activeProject > this.state.projects.length - 2)
+      this.setButtonDisabled("btn-right");
+  }
+
+  setButtonActive(id) {
+    document.getElementById(id).setAttribute("class", "slider-btn");
+  }
+  setButtonDisabled(id) {
+    document.getElementById(id).setAttribute("class", "slider-btn disabled");
+  }
 
   render() {
     return (
@@ -88,7 +118,7 @@ class SkillBox extends React.Component {
         </div>
         <div className="wrapper">
           <div className="slider" id="slider">
-            <div className="slide slide-left">
+            <div className="slide slide-left" id="slider-left">
               <ProjectBox
                 title={this.state.leftSlide.title}
                 text={this.state.leftSlide.text}

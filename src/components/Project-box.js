@@ -17,7 +17,6 @@ class ProjectBox extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log(props.activeProject, state.elemClass, props.i);
     return { elemClass: "slide-base slide" + props.i };
   }
 

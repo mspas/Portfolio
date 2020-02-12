@@ -1,54 +1,71 @@
 @import "../_animations"
 @import "../_variables"
 
+$slideW: 40vw
+$slideHalf: $slideW/2
+
 .projects-section
     width: 100vw
     min-height: 100vh
     background-color: $greendirty
 
 .slider-btn
-    margin: 0 200px
-    font-size: 40px
+    margin: 0 12vw
+    font-size: 2em
     color: #ffffff77
+    cursor: pointer
     &:hover
         color: #ffffff
+.disabled
+    cursor: default !important
+    &:hover
+        color: #ffffff77 !important
 
 .wrapper
     position: relative
-    height: 300px
-    width: 630px
+    height: $slideW/2
+    width: $slideW
+
     .slider
         position: relative
-        height: 300px
-        width: 630px 
+        height: $slideW/2
+        width: $slideW
         transform-style: preserve-3d
-        //transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
-        transition: transform 0.3s
+        transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
+        transition: transform 1s
         &:hover
            // transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
         .slide
-            transform-style: preserve-3d
 
         .slide-left, .slide-right, .slide-center
             position: absolute
-            height: 300px
-            width: 630px
+            height: $slideW/2
+            width: $slideW
             background-color: $yellowish
             backface-visibility: hidden
         .slide-center
-            transform: translateZ(315px)
-            box-shadow: 3px 3px 17px 10px black
+            transform: translateZ($slideW/2)
         .slide-left
             left: 0
             top: 0
-            transform: rotateY(-90deg) translateZ(315px)
+            transform: rotate3d(0, 1, 0, -90deg) translateZ($slideW/2)
         .slide-right
             right: 0
             top: 0
-            transform: rotateY(90deg) translateZ(315px)
+            transform: rotate3d(0, 1, 0, 90deg) translateZ($slideW/2)
 
 .animationSlideLeft
-    transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
+    animation: rotateLeft 1s linear forwards
+    @keyframes rotateLeft
+        0%
+            transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
+        100%
+            transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
             
 .animationSlideRight
-    transform: perspective(1000px) rotate3d(0, 1, 0, -90deg)
+    animation: rotateRight 1s linear forwards
+    @keyframes rotateRight
+        0%
+            transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
+        100%
+            transform: perspective(1000px) rotate3d(0, 1, 0, -90deg)
