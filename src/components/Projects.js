@@ -201,6 +201,7 @@ class SkillBox extends React.Component {
                   i={this.state.activeProject + 1}
                 />
               </div>
+              <div className="shadow"></div>
             </div>
           </div>
           <div

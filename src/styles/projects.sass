@@ -91,6 +91,13 @@ $slideVertical: 90vw
                 transform: rotate3d(0, 1, 0, 90deg) translateZ($slideMobile/2)
             @media screen and ( max-width: 420px )
                 transform: rotate3d(0, 1, 0, 90deg) translateZ($slideVertical/3)
+        .shadow
+            height: $slide
+            width: $slide
+            bottom: 0
+            background-color: #0000004d
+            box-shadow: 0px 0px 30px 5px #00000073 !important
+            transform: rotate3d(1, 0, 0, 90deg) translateZ(-$slide/15)
 
 .animationSlideLeft
     animation: rotateLeft 0.7s linear forwards
