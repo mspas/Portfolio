@@ -1,0 +1,82 @@
+@import "../_variables"
+@import "./skills"
+
+.box-card
+    display: inline-block
+    height: 100%
+    width: 100%
+    font-size: 0.6em
+    text-align: justify
+    -webkit-transform-style: preserve-3d
+    transform-style: preserve-3d
+    transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
+    transition: transform 0.3s
+    &:hover
+        transform: perspective(1000px) rotate3d(0, 1, 0, -78deg)
+        //transform: rotateY(-78deg) translateZ(20px)
+        img, p
+            animation: fadeOutish 0.2s linear forwards
+
+    .card-front, .card-side
+        position: absolute
+        height: 100%
+        width: 100%
+        background-color: $yellowish
+        backface-visibility: hidden
+    .card-front
+        padding-top: 20%
+        text-align: center
+        box-shadow: -3px 5px 17px -3px #ffffff4d
+        transform: translateZ(125px)
+        @media screen and ( max-width: 420px )
+            padding-top: 15%
+            transform: translateZ(26vw)
+        img
+            height: 200px
+            @media screen and ( max-width: 420px )
+                height: auto
+                width: 65%
+        p
+            margin-top: 30px
+            font-family: "Almendra SC", serif
+            -webkit-font-smoothing: antialiased
+            -moz-osx-font-smoothing: grayscale
+            font-size: 2em
+            color: $black
+            @media screen and ( max-width: 420px )
+                margin-top: 15px
+        .exp-bar
+            position: relative
+            width: 80%
+            height: 14px
+            margin: 0 10%
+            padding: 2px
+            background-color: $black
+            .developing
+                position: absolute
+                right: 20px
+                top: 0
+                max-width: 30px
+                color: $greendirty
+                font-size: 11px
+                animation: floatRight 2s infinite
+                @keyframes floatRight
+                    0%
+                        right: 20px
+                    100%
+                        right: 2px
+            .exp
+                position: absolute
+                top: 2px
+                left: 2px
+                width: 50%
+                height: 10px
+                background-color: $greendirty
+    .card-side
+        padding: 25px
+        right: 0
+        top: 0
+        box-shadow: 3px 3px 25px -3px #ffffff4d
+        transform: rotateY(90deg) translateZ(120px)
+        @media screen and ( max-width: 420px )
+            transform: rotateY(90deg) translateZ(25vw)

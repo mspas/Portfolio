@@ -1,15 +1,17 @@
-@import "../_animations"
+@import "./projects"
 @import "../_variables"
 
-$slideW: 40vw
-$slideH: $slideW/2
-
 .slide-base
-    height: $slideH
-    width: $slideW
-    //background-color: $black
     background-size: cover
     background-repeat: no-repeat
+    height: $slide/2
+    width: $slide
+    @media screen and ( max-width: 991px )
+        width: $slideMobile
+        height: $slideMobile / 2
+    @media screen and ( max-width: 420px )
+        width: $slideVertical /1.5
+        height: $slideVertical
 
 .slide-right
     //transform: rotateY(90deg) translateZ(120px)

@@ -1,10 +1,12 @@
 @import "../_animations"
 @import "../_variables"
 
+$card_height: 400px
+
 .skills-section
     min-height: 100vh
     padding: 200px 10vw
-    background-color: $black
+    background-color: $black        
     
 ul
     list-style: none
@@ -18,51 +20,18 @@ li
     position: relative
     display: inline-block
     text-align: center
+    margin: 5vh 4vw
+    height: $card_height
+    width: $card_height/1.6
+    @media screen and ( max-width: 420px )
+        height: 85vw
+        width: calc( 85vw / 1.6)
+        
     .scene
         position: relative
-        height: 400px
-        width: 250px
-    .box-card
-        display: inline-block
-        margin: 60px 60px
-        height: 400px
-        width: 250px
-        font-size: 0.6em
-        text-align: justify
-        -webkit-transform-style: preserve-3d
-        transform-style: preserve-3d
-        transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
-        transition: transform 0.3s
-        &:hover
-            transform: perspective(1000px) rotate3d(0, 1, 0, -78deg)
-            //transform: rotateY(-78deg) translateZ(20px)
-            img, p
-                animation: fadeOutish 0.2s linear forwards
-
-    .card-front, .card-side
-        position: absolute
-        height: 400px
-        width: 250px
-        background-color: $yellowish
-        backface-visibility: hidden
-    .card-front
-        padding: 25% 0
-        text-align: center
-        transform: translateZ(125px)
-        box-shadow: -3px 5px 17px -3px #ffffff4d
-        p
-            margin-top: 30px
-            font-family: "Almendra SC", serif
-            -webkit-font-smoothing: antialiased
-            -moz-osx-font-smoothing: grayscale
-            font-size: 2em
-            color: $black
-    .card-side
-        padding: 25px
-        right: 0
-        top: 0
-        transform: rotateY(90deg) translateZ(120px)
-        box-shadow: 3px 3px 25px -3px #ffffff4d
+        height: 100%
+        width: 100%
+    
     //&:nth-child(1)
     //    .card-front, .card-side
     //        background-color: $reddirty

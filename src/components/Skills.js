@@ -19,28 +19,76 @@ function Skills() {
     <div className="skills-section">
       <ul className="stage">
         <li className="scene">
-          <SkillBox img={angular} name="Angular" text={text} />
+          <SkillBox
+            img={angular}
+            name="Angular"
+            text={text}
+            progress={70}
+            develop={true}
+          />
         </li>
         <li className="scene">
-          <SkillBox img={cnet} name="C# + .Net" text={text} />
+          <SkillBox
+            img={cnet}
+            name="C# + .Net"
+            text={text}
+            progress={60}
+            develop={true}
+          />
         </li>
         <li className="scene">
-          <SkillBox img={html} name="HTML" text={text} />
+          <SkillBox
+            img={html}
+            name="HTML"
+            text={text}
+            progress={80}
+            develop={true}
+          />
         </li>
         <li className="scene">
-          <SkillBox img={css} name="CSS" text={text} />
+          <SkillBox
+            img={css}
+            name="CSS"
+            text={text}
+            progress={75}
+            develop={true}
+          />
         </li>
         <li className="scene">
-          <SkillBox img={js} name="JavaScript" text={text} />
+          <SkillBox
+            img={js}
+            name="JavaScript"
+            text={text}
+            progress={60}
+            develop={true}
+          />
         </li>
         <li className="scene">
-          <SkillBox img={sql} name="SQL" text={text} />
+          <SkillBox
+            img={sql}
+            name="SQL"
+            text={text}
+            progress={40}
+            develop={false}
+          />
         </li>
         <li className="scene">
-          <SkillBox img={react} name="React" text={text} />
+          <SkillBox
+            img={react}
+            name="React"
+            text={text}
+            progress={40}
+            develop={true}
+          />
         </li>
         <li className="scene">
-          <SkillBox img={java} name="Java" text={text} />
+          <SkillBox
+            img={java}
+            name="Java"
+            text={text}
+            progress={50}
+            develop={false}
+          />
         </li>
       </ul>
     </div>

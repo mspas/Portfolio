@@ -1,61 +1,99 @@
 @import "../_animations"
 @import "../_variables"
 
-$slideW: 40vw
-$slideHalf: $slideW/2
+$slide: 35vw
+$slideMobile: 55vw
+$slideVertical: 90vw
 
+.row
+    margin: 0
 .projects-section
     width: 100vw
     min-height: 100vh
+    padding-top: 30vh
     background-color: $greendirty
-
+    @media screen and ( max-width: 420px )
+        padding-top: 20vh
+    .row1
+        height: calc(15vw + 100px)
 .slider-btn
     margin: 0 12vw
     font-size: 2em
-    color: #ffffff77
+    color: #ffffffa2
     cursor: pointer
     &:hover
         color: #ffffff
 .disabled
+    color: #ffffff3f !important
     cursor: default !important
     &:hover
-        color: #ffffff77 !important
+        color: #ffffff3f !important
+
+#mobile-btns
+    @media screen and ( max-width: 991px )
+        margin-top: 10vh
+    @media screen and ( max-width: 420px )
+        margin-top: 30vh
+    .slider-btn 
+        margin: 0 10px
+
+
 
 .wrapper
     position: relative
-    height: $slideW/2
-    width: $slideW
+    height: $slide/2
+    width: $slide
+    @media screen and ( max-width: 991px )
+        width: $slideMobile
+        height: $slideMobile / 2 
+    @media screen and ( max-width: 420px )
+        width: $slideVertical / 1.5
+        height: $slideVertical
 
     .slider
         position: relative
-        height: $slideW/2
-        width: $slideW
+        height: $slide/2
+        width: $slide
         transform-style: preserve-3d
         transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
-        transition: transform 1s
-        &:hover
-           // transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
-        .slide
-
+        transition: transform 0.7s
+        @media screen and ( max-width: 991px )
+            width: $slideMobile
+            height: $slideMobile / 2
+        @media screen and ( max-width: 420px )
+            width: $slideVertical /1.5
+            height: $slideVertical
         .slide-left, .slide-right, .slide-center
             position: absolute
-            height: $slideW/2
-            width: $slideW
+            height: 100%
+            width: 100%
             background-color: $yellowish
             backface-visibility: hidden
         .slide-center
-            transform: translateZ($slideW/2)
+            transform: translateZ($slide/2)
+            @media screen and ( max-width: 992px )
+                transform: translateZ($slideMobile/2)
+            @media screen and ( max-width: 420px )
+                transform: translateZ($slideVertical/3)
         .slide-left
             left: 0
             top: 0
-            transform: rotate3d(0, 1, 0, -90deg) translateZ($slideW/2)
+            transform: rotate3d(0, 1, 0, -90deg) translateZ($slide/2)
+            @media screen and ( max-width: 992px )
+                transform: rotate3d(0, 1, 0, -90deg) translateZ($slideMobile/2)
+            @media screen and ( max-width: 420px )
+                transform: rotate3d(0, 1, 0, -90deg) translateZ($slideVertical/3)
         .slide-right
             right: 0
             top: 0
-            transform: rotate3d(0, 1, 0, 90deg) translateZ($slideW/2)
+            transform: rotate3d(0, 1, 0, 90deg) translateZ($slide/2)
+            @media screen and ( max-width: 992px )  
+                transform: rotate3d(0, 1, 0, 90deg) translateZ($slideMobile/2)
+            @media screen and ( max-width: 420px )
+                transform: rotate3d(0, 1, 0, 90deg) translateZ($slideVertical/3)
 
 .animationSlideLeft
-    animation: rotateLeft 1s linear forwards
+    animation: rotateLeft 0.7s linear forwards
     @keyframes rotateLeft
         0%
             transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
@@ -63,7 +101,7 @@ $slideHalf: $slideW/2
             transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
             
 .animationSlideRight
-    animation: rotateRight 1s linear forwards
+    animation: rotateRight 0.7s linear forwards
     @keyframes rotateRight
         0%
             transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)

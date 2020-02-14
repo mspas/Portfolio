@@ -54,7 +54,7 @@ function Home() {
           </div>
         </div>
         <div className="angle-divider-wrap home-history-divider">
-          <div className="container center" style={{ height: 500 }}>
+          <div className="container center" style={{ height: "40vh" }}>
             <h2 className="home-history">also big history nerd...</h2>
           </div>
         </div>
