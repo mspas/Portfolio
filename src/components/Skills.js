@@ -4,9 +4,7 @@ import "../styles/skills.sass";
 import SkillBox from "./Skill-box";
 import cnet from "../assets/cnet2.png";
 import angular from "../assets/angular3.png";
-import html from "../assets/html.png";
 import css from "../assets/css.png";
-import js from "../assets/js.png";
 import sql from "../assets/sql.png";
 import react from "../assets/react.png";
 import java from "../assets/java.png";
@@ -23,7 +21,7 @@ function Skills() {
             img={angular}
             name="Angular"
             text={text}
-            progress={70}
+            progress={55}
             develop={true}
           />
         </li>
@@ -32,16 +30,7 @@ function Skills() {
             img={cnet}
             name="C# + .Net"
             text={text}
-            progress={60}
-            develop={true}
-          />
-        </li>
-        <li className="scene">
-          <SkillBox
-            img={html}
-            name="HTML"
-            text={text}
-            progress={80}
+            progress={50}
             develop={true}
           />
         </li>
@@ -50,16 +39,7 @@ function Skills() {
             img={css}
             name="CSS"
             text={text}
-            progress={75}
-            develop={true}
-          />
-        </li>
-        <li className="scene">
-          <SkillBox
-            img={js}
-            name="JavaScript"
-            text={text}
-            progress={60}
+            progress={65}
             develop={true}
           />
         </li>
@@ -68,7 +48,7 @@ function Skills() {
             img={sql}
             name="SQL"
             text={text}
-            progress={40}
+            progress={30}
             develop={false}
           />
         </li>
@@ -77,7 +57,7 @@ function Skills() {
             img={react}
             name="React"
             text={text}
-            progress={40}
+            progress={30}
             develop={true}
           />
         </li>
@@ -86,7 +66,7 @@ function Skills() {
             img={java}
             name="Java"
             text={text}
-            progress={50}
+            progress={40}
             develop={false}
           />
         </li>

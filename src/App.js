@@ -10,7 +10,7 @@ function App() {
       <Home />
       <Skills />
       <Projects />
-      <Home />
+      <footer>2020</footer>
     </div>
   );
 }

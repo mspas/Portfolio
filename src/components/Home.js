@@ -34,7 +34,7 @@ function Home() {
               Hi, I'm Marcin Spasiński - computer science{" "}
               <span className="colorFade">student</span> living in Wrocław.{" "}
               <span className="colorFade">Frontend</span> dev wannabe. I just
-              want to make some nice looking things. Not afraid of some{" "}
+              want to make some nice looking things. Interested in some{" "}
               <span className="colorFade">backend</span> work aswell.
             </h3>
           </div>
@@ -53,7 +53,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="angle-divider-wrap home-history-divider">
+        <div className="angle-divider-wrap angle-divider-wrap-after home-history-divider">
           <div className="container center" style={{ height: "40vh" }}>
             <h2 className="home-history">also big history nerd...</h2>
           </div>

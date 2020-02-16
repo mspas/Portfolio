@@ -8,14 +8,22 @@ $slideVertical: 90vw
 .row
     margin: 0
 .projects-section
+    z-index: 2
     width: 100vw
     min-height: 100vh
     padding-top: 30vh
-    background-color: $greendirty
+    background-color: $third
     @media screen and ( max-width: 420px )
         padding-top: 20vh
     .row1
         height: calc(15vw + 100px)
+.projects-section::before
+    z-index: -1
+    top: -5vh
+    transform-origin: top left
+    transform: skewY(-2deg)
+    @media screen and ( max-width: 1100px )
+        height: 100px
 .slider-btn
     margin: 0 12vw
     font-size: 2em
@@ -67,7 +75,7 @@ $slideVertical: 90vw
             position: absolute
             height: 100%
             width: 100%
-            background-color: $yellowish
+            background-color: $secondary
             backface-visibility: hidden
         .slide-center
             transform: translateZ($slide/2)

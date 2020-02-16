@@ -163,7 +163,7 @@ class SkillBox extends React.Component {
 
   render() {
     return (
-      <div className="projects-section">
+      <div className="projects-section angle-divider-wrap">
         <div className="row row1 center">
           <div
             className="big-btns slider-btn"
