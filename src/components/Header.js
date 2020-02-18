@@ -8,7 +8,7 @@ class Header extends React.Component {
     this.state = {
       scrolledPage: "about",
       currentActive: "about",
-      activeFlags: [
+      linksData: [
         { name: "about", active: true },
         { name: "skills", active: false },
         { name: "projects", active: false }
@@ -19,14 +19,14 @@ class Header extends React.Component {
   componentDidUpdate() {
     if (this.state.scrolledPage !== this.state.currentActive) {
       let next = this.state.scrolledPage;
-      let arr = this.state.activeFlags;
+      let arr = this.state.linksData;
 
       for (let i = 0; i < arr.length; i++)
         arr[i].active = next === arr[i].name ? true : false;
 
       this.setState({
         currentActive: this.state.scrolledPage,
-        activeFlags: arr
+        linksData: arr
       });
     }
   }
@@ -35,23 +35,24 @@ class Header extends React.Component {
     return { scrolledPage: props.scrolledPage };
   }
 
+  handleLinkClick(data, event) {
+    document.getElementById(data.name).scrollIntoView();
+  }
+
   render() {
+    let links = this.state.linksData.map((data, index) => {
+      return (
+        <NavLink
+          onClick={this.handleLinkClick.bind(null, data)}
+          active={data.active}
+          name={data.name}
+          key={index}
+        />
+      );
+    });
     return (
       <nav className="navbar-side">
-        <ul>
-          <NavLink
-            active={this.state.activeFlags[0].active}
-            name={this.state.activeFlags[0].name}
-          />
-          <NavLink
-            active={this.state.activeFlags[1].active}
-            name={this.state.activeFlags[1].name}
-          />
-          <NavLink
-            active={this.state.activeFlags[2].active}
-            name={this.state.activeFlags[2].name}
-          />
-        </ul>
+        <ul>{links}</ul>
       </nav>
     );
   }

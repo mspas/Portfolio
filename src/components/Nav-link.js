@@ -49,17 +49,12 @@ class NavLink extends React.Component {
     return { active: props.active };
   }
 
-  onNavClick = ev => {
-    let e = ev.currentTarget.dataset.name;
-    console.log(e);
-  };
-
   render() {
     return (
       <li
         className="nav-link nav-home"
         data-name={this.props.name}
-        onClick={this.onNavClick}
+        onClick={this.props.onClick}
       >
         <svg>
           <circle
