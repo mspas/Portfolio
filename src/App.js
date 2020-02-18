@@ -31,7 +31,7 @@ class App extends React.Component {
   }
 
   handleScroll(event) {
-    let heightFix = window.innerHeight / 1.7;
+    let heightFix = window.innerHeight / 1.6;
     if (window.pageYOffset < this.state.skillsOffset)
       this.setActiveSection("about");
     if (
