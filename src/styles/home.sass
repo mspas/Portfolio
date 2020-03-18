@@ -28,6 +28,7 @@ $descWidth: 70vw
     margin: 60px 20px
     border-radius: 50% 0 0 50%
   .home-desc
+    text-align: left
     width: $descWidth
     padding: 0 25px
     margin: 0 5px 0 0
@@ -35,6 +36,8 @@ $descWidth: 70vw
     @media screen and ( max-width: 720px )
       width: calc( 100vw - 45px )
       padding: 0 5px
+    h3 
+      letter-spacing: 5px
 
 .home-desc-divider
   background-color: $primary
@@ -95,9 +98,6 @@ $descWidth: 70vw
   background-attachment: fixed
   -webkit-background-clip: text
   -webkit-text-fill-color: transparent
-
-.home-desc
-  user-select: none
 
 #git
   position: absolute

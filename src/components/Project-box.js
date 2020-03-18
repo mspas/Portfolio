@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/app.sass";
 import "../styles/projects.sass";
 import "../styles/project-box.sass";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 
 class ProjectBox extends React.Component {
   constructor(props) {
@@ -21,7 +23,15 @@ class ProjectBox extends React.Component {
   }
 
   render() {
-    return <div className={this.state.elemClass}>{this.props.title}</div>;
+    return (
+      <div className={this.state.elemClass}>
+        <div className="link-wrap center">
+          <a href={this.props.url}>
+            <FontAwesomeIcon className="link-ico" icon={faLink} />
+          </a>
+        </div>
+      </div>
+    );
   }
 }
 export default ProjectBox;

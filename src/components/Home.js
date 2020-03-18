@@ -30,13 +30,21 @@ function Home() {
       <div className="home-section">
         <div className="home-desc-divider">
           <div className="home-desc-wrap">
-            <h3 className="home-desc">
-              Hi, I'm Marcin Spasiński - computer science{" "}
-              <span className="colorFade">student</span> living in Wrocław.{" "}
-              <span className="colorFade">Frontend</span> dev wannabe. I just
-              want to make some nice looking things. Interested in some{" "}
-              <span className="colorFade">backend</span> work aswell.
-            </h3>
+            <div className="home-desc">
+              <h3>Hi, I'm Marcin Spasiński </h3>
+              <p>
+                I'm computer science <span className="colorFade">student </span>
+                living in Wrocław. Due to all university work I've obviously met
+                C++, Java and a few other low-level programming. However I
+                decided to focus completely on web developement and eventually
+                end up with C# .net and JS-related frameworks. Since it's still
+                a begining of this adventure and it's all about learning, I'm
+                open to other technologies. Right now I would describe myself as
+                a <span className="colorFade">frontend</span> dev wannabe, eager
+                to make some nice looking things, but interested in some
+                <span className="colorFade"> backend</span> work aswell.
+              </p>
+            </div>
           </div>
           <div className="row links">
             <div className="col col-r col-md-6">

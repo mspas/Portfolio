@@ -7,28 +7,35 @@ import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import nothing from "../assets/nothing.jpg";
 import shitw from "../assets/shitw.jpg";
+import pap from "../assets/pap1.jpg";
 
 const projectsDetails = [
   {
     title: "So How Is The Weather",
-    text: "Weather app in Angular 8. SASS included",
+    url: "https://mspas.github.io/So-How-Is-The-Weather/",
+    text: "Weather app",
+    tech: "Angular 8, SASS",
     desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistinciunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos.",
+      "I wanted to make some simple project to refresh my Angular knowledge. So I did it in, at that time, newest Angular 8. The application uses OpenWeather API. User can check weather due to geolocation of his/her browser or search for any another city.",
     img: { shitw }
   },
   {
     title: "Nothing.",
-    text: "Landing page for product/brand. Made while learning React",
+    url: "https://mspas.github.io/Nothing/",
+    text: "Landing page",
+    tech: "React, SASS",
     desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistinciunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos.",
+      "Landing page made while learning React. I just wanted to have some fun during getting a really brief overview of Reat.",
     img: { nothing }
   },
   {
-    title: "Nothing.",
-    text: "Landing page for product/brand. Made while learning React",
+    title: "Pen & Paper",
+    url: "https://github.com/mspas/Pen-and-paper",
+    text: "Social media, forum",
+    tech: "C# .NET Core, Angular 8, SASS",
     desc:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistinciunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos.",
-    img: { nothing }
+      "The 'social media' aspect of this page was made for my thesis. After that I added also forum-module. Then I reworked the whole graphic desing. After that I reworked API, because I wasn't really happy how it was done. Then I reworked the whole graphic desing again... Currently. after a break that I made for other projects, I came back to this one and of course redesigning the whole thing. Due to all that reworks the app is not finished.",
+    img: { pap }
   }
 ];
 
@@ -164,6 +171,7 @@ class SkillBox extends React.Component {
   render() {
     return (
       <div className="projects-section angle-divider-wrap">
+        <h3>{this.state.activeSlide.title}</h3>
         <div className="row row1 center">
           <div
             className="big-btns slider-btn"
@@ -177,27 +185,21 @@ class SkillBox extends React.Component {
               <div className="slide slide-left" id="slider-left">
                 <ProjectBox
                   title={this.state.leftSlide.title}
-                  text={this.state.leftSlide.text}
-                  desc={this.state.leftSlide.desc}
-                  activeProject={this.state.activeProject}
+                  url={this.state.leftSlide.url}
                   i={this.state.activeProject - 1}
                 />
               </div>
               <div className="slide slide-center">
                 <ProjectBox
                   title={this.state.activeSlide.title}
-                  text={this.state.activeSlide.text}
-                  desc={this.state.activeSlide.desc}
-                  activeProject={this.state.activeProject}
+                  url={this.state.activeSlide.url}
                   i={this.state.activeProject}
                 />
               </div>
               <div className="slide slide-right">
                 <ProjectBox
                   title={this.state.rightSlide.title}
-                  text={this.state.rightSlide.text}
-                  desc={this.state.rightSlide.desc}
-                  activeProject={this.state.activeProject}
+                  url={this.state.rightSlide.url}
                   i={this.state.activeProject + 1}
                 />
               </div>
@@ -227,6 +229,20 @@ class SkillBox extends React.Component {
           >
             <FontAwesomeIcon icon={faChevronCircleRight} />
           </div>
+        </div>
+        <div className="container">
+          <p>
+            <span className="text-project">Description TL;DR: </span>
+            {this.state.activeSlide.text}
+          </p>
+          <p>
+            <span className="text-project">Technology stack: </span>
+            {this.state.activeSlide.tech}
+          </p>
+          <p className="text-project" style={{ marginBottom: 0 }}>
+            Description:
+          </p>
+          <div className="desc-project">{this.state.activeSlide.desc}</div>
         </div>
       </div>
     );

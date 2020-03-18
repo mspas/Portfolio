@@ -1,14 +1,29 @@
 @import "../_variables"
+@import "../_animations"
 
-$slide: 35vw
+$slide: 25vw
 $slideMobile: 55vw
 $slideVertical: 90vw
 
 .slide-base
+    position: relative
     background-size: cover
     background-repeat: no-repeat
     height: $slide/2
     width: $slide
+    .link-wrap
+        position: absolute
+        height: 40px
+        width: 40px
+        right: 10px
+        bottom: 10px
+        border-radius: 50px
+        box-shadow: 0px 0px 1px 1px $fourth
+        &:hover
+            background-color: #e9eaec21
+        a
+            font-size: 18px
+            color: $fourth
     @media screen and ( max-width: 991px )
         width: $slideMobile
         height: $slideMobile / 2
@@ -16,15 +31,13 @@ $slideVertical: 90vw
         width: $slideVertical /1.5
         height: $slideVertical
 
-.slide-right
-    //transform: rotateY(90deg) translateZ(120px)
-.slide-left
-    //transform: rotateY(-90deg) translateZ(120px)
-
-
 .slide0
     background-image: url("../assets/shitw.jpg")
+    .link-wrap
+        box-shadow: 0px 0px 1px 1px $primary
+        a
+            color: $primary
 .slide1
     background-image: url("../assets/nothing.jpg")
 .slide2
-    background-image: url("../assets/nothing.jpg")
+    background-image: url("../assets/pap2.jpg")
