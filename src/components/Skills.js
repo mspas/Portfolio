@@ -9,70 +9,83 @@ import sql from "../assets/sql.png";
 import react from "../assets/react.png";
 import java from "../assets/java.png";
 
-const text =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistincidunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos. Aliquam fermentum metus sed ante pellentesque tristique. Mauris finibus ex non porttitor sollicitudin.";
+const cardsData = [
+  {
+    name: "Angular",
+    img: angular,
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistincidunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos. Aliquam fermentum metus sed ante pellentesque tristique. Mauris finibus ex non porttitor sollicitudin.",
+    progress: 55,
+    develop: true,
+  },
+  {
+    name: "C# + .NET",
+    img: cnet,
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistincidunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos. Aliquam fermentum metus sed ante pellentesque tristique. Mauris finibus ex non porttitor sollicitudin.",
+    progress: 50,
+    develop: true,
+  },
+  {
+    name: "CSS",
+    img: css,
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistincidunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos. Aliquam fermentum metus sed ante pellentesque tristique. Mauris finibus ex non porttitor sollicitudin.",
+    progress: 50,
+    develop: true,
+  },
+  {
+    name: "SQL",
+    img: sql,
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistincidunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos. Aliquam fermentum metus sed ante pellentesque tristique. Mauris finibus ex non porttitor sollicitudin.",
+    progress: 30,
+    develop: false,
+  },
+  {
+    name: "React",
+    img: react,
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistincidunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos. Aliquam fermentum metus sed ante pellentesque tristique. Mauris finibus ex non porttitor sollicitudin.",
+    progress: 40,
+    develop: true,
+  },
+  {
+    name: "Java",
+    img: java,
+    text:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam quistincidunt quam. Class aptent taciti sociosqu ad litora torquentper conubia nostra, per inceptos himenaeos. Aliquam fermentum metus sed ante pellentesque tristique. Mauris finibus ex non porttitor sollicitudin.",
+    progress: 40,
+    develop: false,
+  },
+];
 
-function Skills() {
-  return (
-    <div className="skills-section">
-      <ul className="stage">
-        <li className="scene">
+class Skills extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      skillCards: cardsData,
+    };
+  }
+  render() {
+    let cards = this.state.skillCards.map((data, index) => {
+      return (
+        <li className="scene" key={index}>
           <SkillBox
-            img={angular}
-            name="Angular"
-            text={text}
-            progress={55}
-            develop={true}
+            img={data.img}
+            name={data.name}
+            text={data.text}
+            progress={data.progress}
+            develop={data.develop}
           />
         </li>
-        <li className="scene">
-          <SkillBox
-            img={cnet}
-            name="C# + .Net"
-            text={text}
-            progress={50}
-            develop={true}
-          />
-        </li>
-        <li className="scene">
-          <SkillBox
-            img={css}
-            name="CSS"
-            text={text}
-            progress={65}
-            develop={true}
-          />
-        </li>
-        <li className="scene">
-          <SkillBox
-            img={sql}
-            name="SQL"
-            text={text}
-            progress={30}
-            develop={false}
-          />
-        </li>
-        <li className="scene">
-          <SkillBox
-            img={react}
-            name="React"
-            text={text}
-            progress={30}
-            develop={true}
-          />
-        </li>
-        <li className="scene">
-          <SkillBox
-            img={java}
-            name="Java"
-            text={text}
-            progress={40}
-            develop={false}
-          />
-        </li>
-      </ul>
-    </div>
-  );
+      );
+    });
+    return (
+      <div className="skills-section">
+        <ul className="stage">{cards}</ul>
+      </div>
+    );
+  }
 }
-
 export default Skills;

@@ -24,15 +24,15 @@
         background-color: $secondary
         backface-visibility: hidden
     .card-front
-        padding-top: 20%
+        padding-top: 10%
         text-align: center
         box-shadow: -3px 5px 17px -3px #ffffff4d
-        transform: translateZ(125px)
+        transform: translateZ(94px)
         @media screen and ( max-width: 420px )
             padding-top: 15%
             transform: translateZ(26vw)
         img
-            height: 200px
+            height: 150px
             @media screen and ( max-width: 420px )
                 height: auto
                 width: 65%
@@ -73,10 +73,22 @@
                 height: 10px
                 background-color: $third
     .card-side
-        padding: 25px
+        padding: 10px
+        padding-bottom: 5px
         right: 0
         top: 0
         box-shadow: 3px 3px 25px -3px #ffffff4d
-        transform: rotateY(90deg) translateZ(120px)
+        transform: rotateY(90deg) translateZ(90px)
         @media screen and ( max-width: 420px )
             transform: rotateY(90deg) translateZ(25vw)
+        .card-desc
+            max-height: calc( 100% - 15px ) 
+            padding: 5px
+            overflow-y: auto
+            font-size: 0.9em
+        ::-webkit-scrollbar 
+            width: 3px
+        ::-webkit-scrollbar-track 
+            background: #f1f1f1
+        ::-webkit-scrollbar-thumb 
+            background: $fourth

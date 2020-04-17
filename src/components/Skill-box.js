@@ -14,7 +14,7 @@ class SkillBox extends React.Component {
     this.setState(
       {
         barId: this.state.barId + this.props.name,
-        arrowsId: this.state.arrowsId + this.props.name
+        arrowsId: this.state.arrowsId + this.props.name,
       },
       () => {
         let bar = document.getElementById(this.state.barId);
@@ -33,7 +33,7 @@ class SkillBox extends React.Component {
       <div className="box-card">
         <div className="card-front">
           <div className="card-img center">
-            <img src={this.props.img} alt={this.props.name} height={200} />
+            <img src={this.props.img} alt={this.props.name} height={100} />
           </div>
           <p>{this.props.name}</p>
           <div className="exp-bar">
@@ -45,7 +45,9 @@ class SkillBox extends React.Component {
             </div>
           </div>
         </div>
-        <div className="card-side">{this.props.text}</div>
+        <div className="card-side">
+          <div className="card-desc">{this.props.text}</div>
+        </div>
       </div>
     );
   }

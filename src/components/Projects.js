@@ -16,7 +16,7 @@ const projectsDetails = [
     text: "Weather app",
     tech: "Angular 8, SASS",
     desc:
-      "I wanted to make some simple project to refresh my Angular knowledge. So I did it in, at that time, newest Angular 8. The application uses OpenWeather API. User can check weather due to geolocation of his/her browser or search for any another city.",
+      "I wanted to make some simple project to refresh my Angular knowledge. So I did. The application uses OpenWeather API. User can check weather due to geolocation of browser or search for any another city.",
     img: { shitw }
   },
   {
@@ -25,16 +25,25 @@ const projectsDetails = [
     text: "Landing page",
     tech: "React, SASS",
     desc:
-      "Landing page made while learning React. I just wanted to have some fun during getting a really brief overview of Reat.",
+      "Landing page made while learning React. I just wanted to have some fun during getting a really brief overview of React.",
     img: { nothing }
   },
   {
     title: "Pen & Paper",
     url: "https://github.com/mspas/Pen-and-paper",
     text: "Social media, forum",
-    tech: "C# .NET Core, Angular 8, SASS",
+    tech: "Angular 8, SASS, C# .NET Core 2.0",
     desc:
-      "The 'social media' aspect of this page was made for my thesis. After that I added also forum-module. Then I reworked the whole graphic desing. After that I reworked API, because I wasn't really happy how it was done. Then I reworked the whole graphic desing again... Currently. after a break that I made for other projects, I came back to this one and of course redesigning the whole thing. Due to all that reworks the app is not finished.",
+      "The 'social media' aspect of this page was made for my thesis. What I mean by 'social-media' is user profiles, friends lists, creating events and private messages. Client APP was made in Angular 5 and API in .NET Core 2.0 with Entity Framework. After that I created also forum-module. Then I reworked the whole graphic desing. After that I reworked API, because I wasn't really happy how it was done. Then I reworked the whole graphic desing again... Currently, after a break that I made for other projects, I came back to this one and of course redesigning the whole thing. Obviously with better knowledge right now, I want make some things better. I also updated client APP to 8th version of Angular, and converting styles to use preprocessor SASS. Due to all that reworks the app is not finished yet.",
+    img: { pap }
+  },
+  {
+    title: "Office Pathfinder",
+    url: "https://github.com/mspas/office-pathfinder",
+    text: "Interactive map",
+    tech: "Angular 5, C# .NET Core 2",
+    desc:
+      "University group project developed with a company that submitted an idea for it. And yes, it was as interesting expirience as it sounds. We tried to work like commercial-ish team with 2 persons responsible for client APP (I was one of them), 2 other for API and someone like project manager responsible for contacting with company. We worked in SCRUM-like work-flow. The application was a SVG map of office where users could click on each desk or room to check who they can found there or type a name and find person's workplace on map.",
     img: { pap }
   }
 ];
