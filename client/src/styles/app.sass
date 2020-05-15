@@ -1,0 +1,73 @@
+@import "../_variables"
+
+.App
+  font-size: calc(10px + 2vmin)
+  color: black
+  width: 100vw
+
+.App-logo
+  position: absolute
+  height: 40vmin
+
+.App-header
+  background-color: #282c3400
+  min-height: 100vh
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  font-size: calc(10px + 2vmin)
+  color: white
+
+.App-link
+  color: #09d3ac
+
+footer
+  background-color: $primary
+  color: $secondary
+  text-align: center
+  font-family: "Montserrat", sans-serif
+  font-size: 9px
+  font-weight: 400
+  letter-spacing: 8px
+
+.row
+  max-width: 100vw
+
+.slope
+  position: absolute
+  z-index: 2
+.slope1
+  top: -78px
+  left: 0
+  height: 80px
+  width: 100%
+  clip-path: polygon(0 0, 0% 100%, 100% 100%)
+  background: $secondary
+.slope2
+  top: -49px
+  right: 0
+  height: 50px
+  width: 70%
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%)
+  background: $fifth
+.slope3
+  bottom: -79px
+  right: 0
+  height: 80px
+  width: 100%
+  clip-path: polygon(0 0, 100% 100%, 100% 0)
+  background: $secondary
+.slope4
+  bottom: -50px
+  left: 0
+  height: 50px
+  width: 70%
+  clip-path: polygon(0 0, 0% 100%, 100% 0)
+  background: $fifth
+
+.slope-divider
+  position: relative
+  min-height: 200px
+  min-width: 100vw
+  background: $secondary

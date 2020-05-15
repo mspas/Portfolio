@@ -3,26 +3,6 @@ import "../styles/app.sass";
 import "../styles/home.sass";
 import git from "../assets/git-ico.png";
 import lin from "../assets/lin-ico.png";
-import Particles from "react-particles-js";
-
-const particleOpt = {
-  particles: {
-    number: {
-      value: 50,
-      density: {
-        enable: true,
-        value_area: 800,
-      },
-    },
-    color: {
-      value: "#C7493A",
-    },
-    line_linked: {
-      color: "#C7493A",
-      opacity: 0.3,
-    },
-  },
-};
 
 function Home() {
   return (
@@ -59,7 +39,7 @@ function Home() {
             </div>
           </div>
         </div>
-        <div className="container center home-history">
+        <div className="container center slope-divider">
           <div className="slope slope2"></div>
           <div className="slope slope1"></div>
           <h2>also big history nerd...</h2>

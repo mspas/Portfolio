@@ -84,7 +84,6 @@ class Skills extends React.Component {
     return (
       <div className="skills-section">
         <ul className="stage">{cards}</ul>
-        <div className="slope slope0"></div>
       </div>
     );
   }
