@@ -4,10 +4,10 @@
 $card_height: 300px
 
 .skills-section
+    position: relative
     min-height: 100vh
     padding: 200px 10vw
     background-color: $fourth
-    
     ul
         list-style: none
         text-align: center
@@ -26,11 +26,17 @@ $card_height: 300px
         @media screen and ( max-width: 420px )
             height: 85vw
             width: calc( 85vw / 1.6)
-            
         .scene
             position: relative
             height: 100%
             width: 100%
+.slope0
+    bottom: 0
+    left: 0
+    height: 80px
+    width: 100%
+    clip-path: polygon(0 100%, 0 0, 100% 100%)
+    background: $secondary
     
     //&:nth-child(1)
     //    .card-front, .card-side

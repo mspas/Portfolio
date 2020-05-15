@@ -11,33 +11,47 @@ $slideVertical: 90vw
     background-repeat: no-repeat
     height: $slide/2
     width: $slide
-    .link-wrap
+    .links-wrap
         position: absolute
-        height: 40px
-        width: 40px
         right: 10px
         bottom: 10px
-        border-radius: 50px
-        box-shadow: 0px 0px 1px 1px $fourth
-        &:hover
-            background-color: #e9eaec21
-        a
-            font-size: 18px
-            color: $fourth
-    @media screen and ( max-width: 991px )
-        width: $slideMobile
-        height: $slideMobile / 2
-    @media screen and ( max-width: 420px )
-        width: $slideVertical /1.5
-        height: $slideVertical
+        .link
+            margin-top: 10px
+            height: 40px
+            width: 40px
+            border-radius: 50px
+            box-shadow: 0px 0px 1px 1px $secondary
+            &:hover
+                background-color: #e9eaec21
+            a
+                font-size: 18px
+                color: $secondary
+        @media screen and ( max-width: 991px )
+            width: $slideMobile
+            height: $slideMobile / 2
+        @media screen and ( max-width: 420px )
+            width: $slideVertical /1.5
+            height: $slideVertical
 
 .slide0
-    background-image: url("../assets/shitw.jpg")
-    .link-wrap
-        box-shadow: 0px 0px 1px 1px $primary
-        a
-            color: $primary
-.slide1
     background-image: url("../assets/nothing.jpg")
+.slide1
+    background-image: url("../assets/shitw.jpg")
 .slide2
     background-image: url("../assets/pap2.jpg")
+    .links-wrap
+        .link
+            box-shadow: 0px 0px 1px 1px $primary
+            a
+                color: $primary
+.slide3
+    background-image: url("../assets/downloader.jpg")
+.slide4
+    background-image: url("../assets/checkit.jpg")
+.slide5
+    background-image: url("../assets/office.jpg")
+    .links-wrap
+        .link
+            box-shadow: 0px 0px 1px 1px $primary
+            a
+                color: $primary

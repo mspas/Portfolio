@@ -11,17 +11,17 @@ class App extends React.Component {
     this.state = {
       scrolledPage: "about",
       skillsOffset: 1000,
-      projectsOffset: 2000
+      projectsOffset: 2000,
     };
     this.handleScroll = this.handleScroll.bind(this);
   }
 
   componentDidMount() {
-    let so = document.getElementById("skills").offsetTop;
-    let po = document.getElementById("projects").offsetTop;
+    let so = document.getElementById("skills").offsetTop - 320;
+    let po = document.getElementById("projects").offsetTop + 500;
     this.setState({
       skillsOffset: so,
-      projectsOffset: po
+      projectsOffset: po,
     });
     window.addEventListener("scroll", this.handleScroll);
   }
@@ -31,21 +31,20 @@ class App extends React.Component {
   }
 
   handleScroll(event) {
-    let heightFix = window.innerHeight / 1.6;
     if (window.pageYOffset < this.state.skillsOffset)
       this.setActiveSection("about");
     if (
       window.pageYOffset > this.state.skillsOffset &&
-      window.pageYOffset < this.state.projectsOffset + heightFix
+      window.pageYOffset < this.state.projectsOffset - window.innerHeight
     )
       this.setActiveSection("skills");
-    if (window.pageYOffset > this.state.projectsOffset - heightFix)
+    if (window.pageYOffset > this.state.projectsOffset - window.innerHeight)
       this.setActiveSection("projects");
   }
 
   setActiveSection(name) {
     this.setState({
-      scrolledPage: name
+      scrolledPage: name,
     });
   }
 
