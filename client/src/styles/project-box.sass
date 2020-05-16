@@ -11,6 +11,11 @@ $slideVertical: 90vw
     background-repeat: no-repeat
     height: $slide/2
     width: $slide
+    @media screen and ( max-width: 991px )
+        width: 100%
+        height: 100%
+    @media screen and ( max-width: 420px )
+    	background-position: top center
     .links-wrap
         position: absolute
         right: 10px
@@ -26,12 +31,6 @@ $slideVertical: 90vw
             a
                 font-size: 18px
                 color: $secondary
-        @media screen and ( max-width: 991px )
-            width: $slideMobile
-            height: $slideMobile / 2
-        @media screen and ( max-width: 420px )
-            width: $slideVertical /1.5
-            height: $slideVertical
 
 .slide0
     background-image: url("../assets/nothing.jpg")

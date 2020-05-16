@@ -33,7 +33,7 @@ class SkillBox extends React.Component {
       <div className="box-card">
         <div className="card-front">
           <div className="card-img center">
-            <img src={this.props.img} alt={this.props.name} height={100} />
+            <img src={this.props.img} alt={this.props.name} />
           </div>
           <p>{this.props.name}</p>
           <div className="exp-bar">

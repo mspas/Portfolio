@@ -11,18 +11,14 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//var clientId = '553999815462-c8dklhdtidpnaac3l1u2o6gnvv35rgea.apps.googleusercontent.com';
-//var apiKey = 'AIzaSyC6po_hBpCzAlmDcGBG8lqKBo0SM-B9cyw';
-
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "@gmail.com",
-    pass: "",
+    user: "mspasbot@gmail.com",
+    pass: "Niebanujbandyto123",
   },
 });
 
-// API calls
 app.post("/api/send-mail", (req, res) => {
   let mail = req.body.mail;
 

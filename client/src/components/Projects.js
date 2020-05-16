@@ -270,18 +270,20 @@ class SkillBox extends React.Component {
           </div>
         </div>
         <div className="container">
-          <p>
-            <span className="text-project">Description TL;DR: </span>
-            {this.state.activeSlide.text}
-          </p>
-          <p>
-            <span className="text-project">Technology stack: </span>
-            {this.state.activeSlide.tech}
-          </p>
-          <p className="text-project" style={{ marginBottom: 0 }}>
-            Description:
-          </p>
-          <div className="desc-project">{this.state.activeSlide.desc}</div>
+          <div className="project-info">
+            <p>
+              <span className="text-project">Description TL;DR: </span>
+              {this.state.activeSlide.text}
+            </p>
+            <p>
+              <span className="text-project">Technology stack: </span>
+              {this.state.activeSlide.tech}
+            </p>
+            <p className="text-project" style={{ marginBottom: 0 }}>
+              Description:
+            </p>
+            <div className="desc-project">{this.state.activeSlide.desc}</div>
+          </div>
         </div>
       </div>
     );

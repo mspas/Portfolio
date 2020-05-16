@@ -32,10 +32,8 @@
             padding-top: 15%
             transform: translateZ(26vw)
         img
-            height: 150px
-            @media screen and ( max-width: 420px )
-                height: auto
-                width: 65%
+            max-height: 150px
+            height: 60%
         p
             margin-top: 30px
             font-family: "Almendra SC", serif
@@ -85,7 +83,8 @@
             max-height: calc( 100% - 15px ) 
             padding: 5px
             overflow-y: auto
-            font-size: 0.9em
+            font-size: 0.9rem
+            line-height: 1
         ::-webkit-scrollbar 
             width: 3px
         ::-webkit-scrollbar-track 
