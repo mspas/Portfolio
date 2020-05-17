@@ -14,8 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "mspasbot@gmail.com",
-    pass: "Niebanujbandyto123",
+    user: "@gmail.com",
+    pass: "",
   },
 });
 
@@ -26,8 +26,8 @@ app.post("/api/send-mail", (req, res) => {
     from: "mspasBot@gmail.com",
     to: mail,
     subject: "You requested my CV, so here you are!",
-    text:
-      "I'm honoured that you liked my work that much! All the contact information are listed in my CV. This mail was sent automatically, do not respond to this email adress, instead of it use the one mentioned in CV.",
+    html:
+      "<h2>I'm honoured that you liked my work that much!</h2> All the contact information are listed in my CV. This mail was sent automatically, do not respond to this email adress, instead of it use the one mentioned in CV.",
     attachments: [
       {
         filename: "Marcin Spasinski-CV.pdf",

@@ -137,7 +137,7 @@ $slideVertical: 90vw
 .animationSlideLeft
     animation: rotateLeft 0.7s linear forwards
     @keyframes rotateLeft
-        0%
+        0%s
             transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
         100%
             transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
@@ -149,3 +149,6 @@ $slideVertical: 90vw
             transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
         100%
             transform: perspective(1000px) rotate3d(0, 1, 0, -90deg)
+
+.text-fadeInOut
+    animation: fadeOutIn 1.4s ease-in-out

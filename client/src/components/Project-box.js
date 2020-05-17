@@ -27,15 +27,17 @@ class ProjectBox extends React.Component {
       <div className={this.state.elemClass}>
         <div className="links-wrap">
           <div className="link center">
-            <a href={this.props.link}>
+            <a href={this.props.projectData.gitURL}>
               <FontAwesomeIcon className="link-ico" icon={faCode} />
             </a>
           </div>
-          <div className="link center">
-            <a href={this.props.gitURL}>
-              <FontAwesomeIcon className="link-ico" icon={faLink} />
-            </a>
-          </div>
+          {this.props.projectData.link !== "" && (
+            <div className="link center">
+              <a href={this.props.projectData.link}>
+                <FontAwesomeIcon className="link-ico" icon={faLink} />
+              </a>
+            </div>
+          )}
         </div>
       </div>
     );
