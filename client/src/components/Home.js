@@ -10,7 +10,7 @@ function Home() {
       <div className="home-section">
         <div className="home-section-content">
           <div className="home-desc">
-            <h3>Hi, I'm Marcin Spasiński </h3>
+            <h3>Hello, I'm Marcin Spasiński </h3>
             <p>
               I'm computer science <span className="colorFade">student </span>
               living in Wrocław. Due to all university work I've obviously met
@@ -32,7 +32,10 @@ function Home() {
               </a>
             </div>
             <div className="col col-l col-md-6">
-              <a id="lin" href="https://linkedin.com/">
+              <a
+                id="lin"
+                href="https://www.linkedin.com/in/marcin-spasi%C5%84ski-8454bb1aa/"
+              >
                 <img src={lin} height={50} alt="Linkedin" /> <br />
                 Linkedin
               </a>

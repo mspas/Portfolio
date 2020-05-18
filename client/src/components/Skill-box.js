@@ -13,14 +13,14 @@ class SkillBox extends React.Component {
   componentDidMount() {
     this.setState(
       {
-        barId: this.state.barId + this.props.name,
-        arrowsId: this.state.arrowsId + this.props.name,
+        barId: this.state.barId + this.props.data.name,
+        arrowsId: this.state.arrowsId + this.props.data.name,
       },
       () => {
         let bar = document.getElementById(this.state.barId);
-        bar.style.width = this.props.progress.toString() + "%";
+        bar.style.width = this.props.data.progress.toString() + "%";
 
-        if (!this.props.develop)
+        if (!this.props.data.develop)
           document
             .getElementById(this.state.arrowsId)
             .setAttribute("class", "sr-only");
@@ -33,9 +33,9 @@ class SkillBox extends React.Component {
       <div className="box-card">
         <div className="card-front">
           <div className="card-img center">
-            <img src={this.props.img} alt={this.props.name} />
+            <img src={this.props.data.img} alt={this.props.data.name} />
           </div>
-          <p>{this.props.name}</p>
+          <p>{this.props.data.name}</p>
           <div className="exp-bar">
             <div id={this.state.barId} className="exp"></div>
             <div id={this.state.arrowsId} className="developing">
@@ -46,7 +46,10 @@ class SkillBox extends React.Component {
           </div>
         </div>
         <div className="card-side">
-          <div className="card-desc">{this.props.text}</div>
+          <div className="card-desc">
+            <p>{this.props.data.text}</p>
+            <p className="comment">{this.props.data.comment}</p>
+          </div>
         </div>
       </div>
     );

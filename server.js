@@ -3,7 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const fs = require("fs");
-//const fileBase64 = require("./fileEncoded");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -17,8 +16,8 @@ const fileBase64 = new Buffer.from(binaryData).toString("base64");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "@gmail.com",
-    pass: "",
+    user: "mspasbot@gmail.com",
+    pass: "Niebanujbandyto123",
   },
 });
 

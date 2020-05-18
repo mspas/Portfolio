@@ -17,6 +17,8 @@ const cardsData = [
       "Louis XIV, the Sun King, the symbol of absolute power in Europe. During his long reign France was the leading European power. " +
       "Despite his powerful image he sufferd a number of diseases. Louis outlived most of his legitimate sons. Napoleon " +
       "described him 'the only King of France worthy of the name'.",
+    comment:
+      "Angular was the first framework that I met. In Angular I was doing my biggest project, but it is still not finished.",
     progress: 55,
     develop: true,
   },
@@ -37,6 +39,8 @@ const cardsData = [
       "Young Peter Romanov was a first heir to the Russian crown who traveled around Europe. During his journey he focused on learning foregin " +
       "cultures and policies. All for great modernization of his country after taking the rule. In the future, " +
       "deservedly, will be called 'the Great'.",
+    comment:
+      "After Angular 'big project' I moved to React, which I was learning while making some smaller projects. It's my most recent intrest.",
     progress: 40,
     develop: true,
   },
@@ -67,6 +71,8 @@ const cardsData = [
       "with marriage with french princess assuring french throne for Henry's son. Unfortunetely Henry V died when his only son was a infant. Rule of baby " +
       "king came with the chaos in english-french relation and breaks previous agreement. Lately, Henry VI will be called mad and dethroned. " +
       "Finally House of Tudors took over the english crown.",
+    comment:
+      "First typically OOP language that I was learning. I left Java for C# and get into .NET framework. Recently, due to my university courses, I got some basic knowledge abot Spring. Return to Java is still possible.",
     progress: 40,
     develop: false,
   },
@@ -84,6 +90,7 @@ class Skills extends React.Component {
       return (
         <li className="scene" key={index}>
           <SkillBox
+            data={data}
             img={data.img}
             name={data.name}
             text={data.text}

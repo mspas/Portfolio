@@ -83,10 +83,15 @@ class Contact extends React.Component {
         <div className="slope slope1"></div>
         <div className="contact-content">
           <h3>Contact</h3>
-          <p>
-            Let's do it like this, type your email down there and I will send
-            you my CV with necessary informations. I mean, more like app will
-            send it for me.
+          <p className="contact-info">
+            You can type your email address down there and my CV with necessary
+            informations will be send to you automatically, your data is not
+            going to be saved anywhere. However if you are not down to use this
+            option, you can still catch me up in{" "}
+            <a href="https://www.linkedin.com/in/marcin-spasi%C5%84ski-8454bb1aa/">
+              linkedin
+            </a>
+            .
           </p>
           <input
             className="email-input"
