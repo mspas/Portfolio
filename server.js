@@ -2,14 +2,17 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
-//const fs = require("fs");
-const fileBase64 = require("./fileEncoded");
+const fs = require("fs");
+//const fileBase64 = require("./fileEncoded");
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+const binaryData = fs.readFileSync("CV.pdf");
+const fileBase64 = new Buffer.from(binaryData).toString("base64");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -30,8 +33,8 @@ app.post("/api/send-mail", (req, res) => {
       "<h2>I'm honoured that you liked my work that much!</h2> All the contact information are listed in my CV. This mail was sent automatically, do not respond to this email adress, instead of it use the one mentioned in CV.",
     attachments: [
       {
-        filename: "Marcin Spasinski-CV.pdf",
-        content: fileBase64.getCode(),
+        filename: "Marcin Spasiński-CV.pdf",
+        content: fileBase64,
         encoding: "base64",
       },
     ],

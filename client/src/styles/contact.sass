@@ -1,9 +1,11 @@
 @import "../_variables"
+@import "../_animations"
 
 .contact-content
     padding: 10px 20px 40px 40px
     color: $primary
     .email-input
+        position: relative
         display: block
         margin-left: auto
         margin-right: auto
@@ -35,3 +37,36 @@
         transition: box-shadow 0.2s
         &:hover
             box-shadow: 1px 2px 5px #c7483ac7
+    .alert-box
+        position: absolute
+        right: 20%
+        top: 20%
+        z-index: 111
+        width: 200px
+        min-height: 50px
+        border-radius: 3px
+        box-shadow: 1px 2px 5px $primary
+        animation: fadeIn 1s
+        .alert-content
+            position: relative
+            padding: 20px
+            .close-icon
+                position: absolute
+                cursor: pointer
+                right: 10px
+                top: 10px
+                font-size: 15px
+                &:hover
+                    color: $secondary
+            p
+                margin: 0
+                text-align: center
+                font-size: 0.8em
+    .success
+        background: #82ff62
+    .error
+        background: $fifth
+    .spinner
+        position: absolute
+        right: 18%
+        top: 60%
