@@ -16,8 +16,8 @@ const fileBase64 = new Buffer.from(binaryData).toString("base64");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "mspasbot@gmail.com",
-    pass: "Niebanujbandyto123",
+    user: "@gmail.com",
+    pass: "",
   },
 });
 
