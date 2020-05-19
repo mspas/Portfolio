@@ -9,8 +9,9 @@ const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("files"));
 
-const binaryData = fs.readFileSync("CV.pdf");
+const binaryData = fs.readFileSync("files/CV.pdf");
 const fileBase64 = new Buffer.from(binaryData).toString("base64");
 
 const transporter = nodemailer.createTransport({
