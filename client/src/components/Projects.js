@@ -12,7 +12,7 @@ const projectsDetails = [
     gitURL: "https://github.com/mspas/Pen-and-paper",
     link: "",
     text: "Social media, forum",
-    tech: "Angular 8, Sass, C#, .NET Core 2.0",
+    tech: "Angular 8, C#, .NET Core 2.0",
     desc:
       "The 'social media' module of this page was made for my thesis. What I mean by 'social-media' is user profiles, friends lists, creating events and private messages. Client APP was made in Angular 5 and API in .NET Core 2.0 with Entity Framework. After that I created also forum module. Then I reworked the whole graphic desing. After that I reworked API, because I wasn't really happy how it was done. Then I reworked the whole graphic desing again... Currently, after a break that I made for other projects, I came back to this one and of course redesigning the whole thing. Obviously with better knowledge right now, I want to make some things better. I also updated client APP to 8th version of Angular, and converting styles to use preprocessor SASS. Due to all that reworks the app is not finished yet.",
   },
@@ -39,7 +39,7 @@ const projectsDetails = [
     gitURL: "https://github.com/mspas/Clip-downloader",
     link: "https://clipzz.herokuapp.com/",
     text: "Video downloader",
-    tech: "React, Express, Node.js",
+    tech: "React, Node.js",
     desc:
       "I'm thinking about some bigger project connected to Twitch clips, so to get a little bit into the topic i decided to make this app. User is pasting URL of a Twitch clip or a YouTube video, after some validation, server is calling Twitch/YouTube APIs to get the video's informations and then download it.",
   },
