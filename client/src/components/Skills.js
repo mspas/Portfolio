@@ -18,7 +18,7 @@ const cardsData = [
       "Despite his powerful image he sufferd a number of diseases. Louis outlived most of his legitimate sons. Napoleon " +
       "described him 'the only King of France worthy of the name'.",
     comment:
-      "Angular was the first framework that I met. In Angular I was doing my biggest project, but it is still not finished.",
+      "Angular was the first framework that I met. In this framweork I was doing my biggest project, but it is still not finished yet.",
     progress: 60,
     develop: true,
   },
@@ -48,8 +48,8 @@ const cardsData = [
     name: "html5",
     img: html,
     text:
-      "Ok, I didn't want to put HTML or CSS or JS in skills section at all... All of them are just basic tools. Stanisław Żółkiewski was more than " +
-      "just a tool in hands of polish king while capturing Moscow... Alright, let's be honest, I just wanted to mention Żółkiewski here for any reason.",
+      "Ok, I didn't want to put HTML or CSS or JS in skills section at all... Alright, let's be honest, I just wanted to mention Żółkiewski here for any reason." +
+      "Especially when HTML icon goes so well with his jaguar skin.",
     progress: 50,
     develop: true,
   },
@@ -58,7 +58,7 @@ const cardsData = [
     img: sql,
     text:
       "Edward the Confessor reign was remembered as a peaceful time, but in reality even though the king was a honest man, he wasn't a independent " +
-      "ruler, when three english earls held true power. Edward did not have a child and one his death the succession war fired. Eventually England " +
+      "ruler, when three english earls held true power. Edward did not have any child and with his death the succession war fired. Eventually England " +
       "was conquered by the Normans under rule of William the Bastard.",
     progress: 30,
     develop: false,
@@ -68,7 +68,7 @@ const cardsData = [
     img: java,
     text:
       "Henry V Lancaster ruled at the late phase of 100-Years War. His reign was remember due to his victorious campaigns in France, which effected " +
-      "with marriage with french princess assuring french throne for Henry's son. Unfortunetely Henry V died when his only son was a infant. Rule of baby " +
+      "with marriage with french princess assuring french throne for Henry's son. Unfortunetely Henry V died when his only son was an infant. Rule of baby " +
       "king came with the chaos in english-french relation and breaks previous agreement. Lately, Henry VI will be called mad and dethroned. " +
       "Finally House of Tudors took over the english crown.",
     comment:
