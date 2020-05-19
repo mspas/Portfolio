@@ -17,8 +17,8 @@ var isTimeout = false;
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "@gmail.com",
-    pass: "",
+    user: "mspasBot@gmail.com",
+    pass: "Niebanujbandyto123",
   },
 });
 
@@ -34,8 +34,8 @@ app.post("/api/send-mail", (req, res) => {
   }
 
   let mailOptions = {
-    from: "@gmail.com",
-    to: "@gmail.com",
+    from: "mspasBot@gmail.com",
+    to: "marcinspasinski96@gmail.com",
     subject: mailSubject,
     text: mailText,
   };
