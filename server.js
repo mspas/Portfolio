@@ -2,17 +2,16 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
-const fs = require("fs");
+//const fs = require("fs");
 
 const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("files"));
 
-const binaryData = fs.readFileSync("files/CV.pdf");
-const fileBase64 = new Buffer.from(binaryData).toString("base64");
+//const binaryData = fs.readFileSync("CV.pdf");
+//const fileBase64 = new Buffer.from(binaryData).toString("base64");
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -23,21 +22,14 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/api/send-mail", (req, res) => {
-  let mail = req.body.mail;
+  let mailSubject = req.body.mailSubject;
+  let mailText = req.body.mailText;
 
   let mailOptions = {
-    from: "mspasBot@gmail.com",
-    to: mail,
-    subject: "You requested my CV, so here you are!",
-    html:
-      "<h2>I'm honoured that you liked my work that much!</h2><p>All the contact information are listed in my CV. This mail was sent automatically, do not respond to this email.</p><p>My email address: marcinspasinski96@gmail.com</p>",
-    attachments: [
-      {
-        filename: "Marcin Spasiński-CV.pdf",
-        content: fileBase64,
-        encoding: "base64",
-      },
-    ],
+    from: "mspasbot@gmail.com",
+    to: "marcin7789@gmail.com",
+    subject: mailSubject,
+    text: mailText,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {

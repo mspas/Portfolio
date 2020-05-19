@@ -2,9 +2,18 @@
 @import "../_animations"
 
 .contact-content
-    padding: 10px 20px 40px 40px
+    position: relative
+    padding: 10px 20px
+    padding-top: 20px
     color: $primary
-    .email-input
+    .contact-title
+        position: absolute
+        top: 20%
+        left: 10px
+        font-size: 2em
+        @media screen and ( max-width: 460px )
+            position: relative            
+    .input
         position: relative
         display: block
         margin-left: auto
@@ -20,6 +29,23 @@
         &:focus
             outline: none
             box-shadow: 1px 2px 5px black
+        @media screen and ( max-width: 460px )
+            width: 90%
+    .email-input
+        height: 35px
+    .text-input
+        height: 120px
+        margin-top: 10px
+        resize: none
+        overflow-y: auto
+        border-radius: 5px
+        font-size: 15px
+    ::-webkit-scrollbar 
+        width: 3px
+    ::-webkit-scrollbar-track 
+        background: #f1f1f1
+    ::-webkit-scrollbar-thumb 
+        background: $fourth
     .contact-info 
         text-align: justify
         max-width: 60%
