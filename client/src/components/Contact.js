@@ -8,56 +8,31 @@ class Contact extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      mailSubject: "",
-      mailText: "",
+      mail: "",
       showAlert: false,
       alertText: "",
       alertType: false,
       isLoading: false,
     };
     this.handleSendMail = this.handleSendMail.bind(this);
-    this.handleMessageChange = this.handleMessageChange.bind(this);
     this.onCloseAlert = this.onCloseAlert.bind(this);
   }
 
-  handleSubjectChange = (event) => {
+  handleInputChange = (event) => {
     const { value } = event.target;
     this.setState({
-      mailSubject: value,
+      mail: value,
     });
   };
-
-  handleMessageChange = (event) => {
-    const { value } = event.target;
-    this.setState({
-      mailText: value,
-    });
-  };
-
-  validateMailData() {
-    if (this.state.mailSubject.length < 1) {
-      this.setState({
-        showAlert: true,
-        alertText: "Subject cannot be an empty field!",
-        alertType: false,
-      });
-      return false;
-    }
-    if (this.state.mailText.length < 1) {
-      this.setState({
-        showAlert: true,
-        alertText: "Message cannot be an empty field!",
-        alertType: false,
-      });
-      return false;
-    }
-    return true;
-  }
 
   handleSendMail = (event) => {
-    let validate = this.validateMailData();
+    let validateUrl = new RegExp(
+      "[A-Za-z0-9]+@[A-Za-z0-9]+(.[A-Za-z0-9]+)+$"
+    ).test(this.state.mail);
 
-    if (validate) {
+    console.log(validateUrl, this.state.mail);
+
+    if (validateUrl) {
       this.setState({
         isLoading: true,
       });
@@ -67,44 +42,33 @@ class Contact extends React.Component {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          mailSubject: this.state.mailSubject,
-          mailText: this.state.mailText,
-        }),
+        body: JSON.stringify({ mail: this.state.mail }),
       })
         .then((res) => res.json())
         .then((json) => {
-          switch (json.statusCode) {
-            case "200": {
-              this.setState({
-                showAlert: true,
-                alertText: "Email was sent successfully!",
-                alertType: true,
-                isLoading: false,
-              });
-              break;
-            }
-            case "420": {
-              this.setState({
-                showAlert: true,
-                alertText: json.error,
-                alertType: false,
-                isLoading: false,
-              });
-              break;
-            }
-            default: {
-              this.setState({
-                showAlert: true,
-                alertText:
-                  "Sorry! Email has not been sent. Please try to conntact me via linkedin instead.",
-                alertType: false,
-                isLoading: false,
-              });
-              break;
-            }
-          }
+          if (json.statusCode !== "200")
+            this.setState({
+              showAlert: true,
+              alertText:
+                "Sorry! Email has not been send. Please try to conntact me via linkedin instead.",
+              alertType: false,
+              isLoading: false,
+            });
+          else
+            this.setState({
+              showAlert: true,
+              alertText: "Email with CV was sent to you successfully!",
+              alertType: true,
+              isLoading: false,
+            });
         });
+    } else {
+      this.setState({
+        showAlert: true,
+        alertText: "Invalid email!",
+        alertType: false,
+        isLoading: false,
+      });
     }
   };
 
@@ -118,25 +82,29 @@ class Contact extends React.Component {
         <div className="slope slope2"></div>
         <div className="slope slope1"></div>
         <div className="contact-content">
-          <span className="contact-title">Contact</span>
+          <h3>Contact</h3>
+          <p className="contact-info">
+            You can type your email address down there and my CV with necessary
+            informations will be send to you automatically, your data is not
+            going to be saved anywhere. However if you are not down to use this
+            option, you can still catch me up in{" "}
+            <a href="https://www.linkedin.com/in/marcin-spasi%C5%84ski-8454bb1aa/">
+              linkedin
+            </a>
+            .
+          </p>
           <input
-            className="input email-input"
-            type="text"
-            placeholder={"subject"}
-            onChange={this.handleSubjectChange}
-          />
-          <textarea
-            className="input text-input"
-            rows="5"
-            placeholder={"type your message"}
-            onChange={this.handleMessageChange}
+            className="email-input"
+            type="email"
+            placeholder={"type your email"}
+            onChange={this.handleInputChange}
           />
           {this.state.isLoading && (
             <span className="spinner">
               <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
             </span>
           )}
-          <button onClick={this.handleSendMail}>send email</button>
+          <button onClick={this.handleSendMail}>send</button>
           {this.state.showAlert && (
             <div
               className={
