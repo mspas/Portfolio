@@ -160,7 +160,6 @@ class SkillBox extends React.Component {
   }
 
   render() {
-    console.log(this.state.activeProject);
     return (
       <div className="projects-section">
         <h3 className={this.state.isChanging ? "text-fadeInOut" : ""}>
@@ -236,7 +235,7 @@ class SkillBox extends React.Component {
           </div>
           <div
             className={
-              this.state.activeProject > this.state.projects.length - 1
+              this.state.activeProject < this.state.projects.length - 1
                 ? "big-btns slider-btn"
                 : "big-btns slider-btn disabled"
             }

@@ -1,11 +1,9 @@
 {
-  "name": "example-create-react-app-express",
+  "name": "about-me-email-server",
   "version": "1.0.0",
-  "description": "Example on using create-react-app with a Node Express Backend",
+  "description": "Front-end dev potfolio",
   "author": {
-    "name": "Esau Silva",
-    "twitter": "@_esausilva",
-    "url": "https://esausilva.com"
+    "name": "Marcin Spasiński"
   },
   "license": "MIT",
   "scripts": {

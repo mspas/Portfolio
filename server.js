@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
-const fs = require("fs");
+//const fs = require("fs");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,8 +10,9 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const binaryData = fs.readFileSync("CV.pdf");
-const fileBase64 = new Buffer.from(binaryData).toString("base64");
+//const binaryData = fs.readFileSync("CV.pdf");
+//const fileBase64 = new Buffer.from(binaryData).toString("base64");
+var isTimeout = false;
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -22,21 +23,21 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/api/send-mail", (req, res) => {
-  let mail = req.body.mail;
+  let mailSubject = req.body.mailSubject;
+  let mailText = req.body.mailText;
+
+  if (isTimeout) {
+    res.send({
+      statusCode: "420",
+      error: "Timeout between emails is set to 5 min to prevent spam!",
+    });
+  }
 
   let mailOptions = {
-    from: "mspasBot@gmail.com",
-    to: mail,
-    subject: "You requested my CV, so here you are!",
-    html:
-      "<h2>I'm honoured that you liked my work that much!</h2> All the contact information are listed in my CV. This mail was sent automatically, do not respond to this email adress, instead of it use the one mentioned in CV.",
-    attachments: [
-      {
-        filename: "Marcin Spasiński-CV.pdf",
-        content: fileBase64,
-        encoding: "base64",
-      },
-    ],
+    from: "@gmail.com",
+    to: "@gmail.com",
+    subject: mailSubject,
+    text: mailText,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
@@ -45,9 +46,18 @@ app.post("/api/send-mail", (req, res) => {
       res.send({ statusCode: "404", error: error });
     } else {
       res.send({ statusCode: "200", error: true });
+      isTimeout = true;
+      console.log(isTimeout);
+      timeout();
     }
   });
 });
+
+const timeout = () => {
+  setTimeout(() => {
+    isTimeout = false;
+  }, 300000);
+};
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
