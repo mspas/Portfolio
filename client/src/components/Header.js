@@ -11,28 +11,24 @@ class Header extends React.Component {
       linksData: [
         { name: "about", active: true },
         { name: "skills", active: false },
-        { name: "projects", active: false }
-      ]
+        { name: "projects", active: false },
+      ],
     };
   }
 
   componentDidUpdate() {
-    if (this.state.scrolledPage !== this.state.currentActive) {
-      let next = this.state.scrolledPage;
+    if (this.props.scrolledPage !== this.state.currentActive) {
+      let next = this.props.scrolledPage;
       let arr = this.state.linksData;
 
       for (let i = 0; i < arr.length; i++)
         arr[i].active = next === arr[i].name ? true : false;
 
       this.setState({
-        currentActive: this.state.scrolledPage,
-        linksData: arr
+        currentActive: this.props.scrolledPage,
+        linksData: arr,
       });
     }
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    return { scrolledPage: props.scrolledPage };
   }
 
   handleLinkClick(data, event) {

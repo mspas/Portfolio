@@ -7,25 +7,11 @@ import "../styles/skill-box.sass";
 class SkillBox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { barId: "exp-", arrowsId: "developing-" };
+    this.expRef = React.createRef();
   }
 
   componentDidMount() {
-    this.setState(
-      {
-        barId: this.state.barId + this.props.data.name,
-        arrowsId: this.state.arrowsId + this.props.data.name,
-      },
-      () => {
-        let bar = document.getElementById(this.state.barId);
-        bar.style.width = this.props.data.progress.toString() + "%";
-
-        if (!this.props.data.develop)
-          document
-            .getElementById(this.state.arrowsId)
-            .setAttribute("class", "sr-only");
-      }
-    );
+    this.expRef.current.style.width = this.props.data.progress.toString() + "%";
   }
 
   render() {
@@ -37,8 +23,8 @@ class SkillBox extends React.Component {
           </div>
           <p>{this.props.data.name}</p>
           <div className="exp-bar">
-            <div id={this.state.barId} className="exp"></div>
-            <div id={this.state.arrowsId} className="developing">
+            <div className="exp" ref={this.expRef}></div>
+            <div className={this.props.data.develop ? "developing" : "sr-only"}>
               <FontAwesomeIcon icon={faAngleRight} />
               <FontAwesomeIcon icon={faAngleRight} />
               <FontAwesomeIcon icon={faAngleRight} />

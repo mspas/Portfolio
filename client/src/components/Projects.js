@@ -84,6 +84,7 @@ class SkillBox extends React.Component {
       activeProject: 0,
       isChanging: false,
     };
+    this.sliderRef = React.createRef();
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
@@ -93,23 +94,19 @@ class SkillBox extends React.Component {
   }
 
   updateWindowDimensions() {
-    this.setState({ width: window.innerWidth }, () => {
-      this.setButtons();
-    });
+    this.setState({ width: window.innerWidth });
   }
 
   onLeftSlide = (ev) => {
     let activeId = this.state.activeProject;
     let min = activeId < 2 ? 0 : activeId - 2;
 
-    this.setState({
-      isChanging: true,
-    });
-
     if (activeId > 0) {
-      document
-        .getElementById("slider")
-        .setAttribute("class", "slider animationSlideLeft");
+      this.setState({
+        isChanging: true,
+      });
+
+      this.sliderRef.current.setAttribute("class", "slider animationSlideLeft");
       setTimeout(() => {
         this.setState(
           {
@@ -120,7 +117,7 @@ class SkillBox extends React.Component {
             isChanging: false,
           },
           () => {
-            document.getElementById("slider").setAttribute("class", "slider");
+            this.sliderRef.current.setAttribute("class", "slider");
           }
         );
       }, 700);
@@ -132,14 +129,15 @@ class SkillBox extends React.Component {
     let max =
       activeId > this.state.projects.length - 3 ? activeId + 1 : activeId + 2;
 
-    this.setState({
-      isChanging: true,
-    });
-
     if (activeId < this.state.projects.length - 1) {
-      document
-        .getElementById("slider")
-        .setAttribute("class", "slider animationSlideRight");
+      this.setState({
+        isChanging: true,
+      });
+
+      this.sliderRef.current.setAttribute(
+        "class",
+        "slider animationSlideRight"
+      );
       setTimeout(() => {
         this.setState(
           {
@@ -150,84 +148,40 @@ class SkillBox extends React.Component {
             isChanging: false,
           },
           () => {
-            document.getElementById("slider").setAttribute("class", "slider");
+            this.sliderRef.current.setAttribute("class", "slider");
           }
         );
       }, 700);
     }
   };
 
-  componentDidUpdate() {
-    this.setButtonActive("btn-left-bg");
-    this.setButtonActive("btn-right-bg");
-    this.setButtonActive("btn-left-mb");
-    this.setButtonActive("btn-right-mb");
-
-    if (this.state.activeProject < 1) {
-      this.setButtonDisabled("btn-left-bg");
-      this.setButtonDisabled("btn-left-mb");
-    }
-
-    if (this.state.activeProject > this.state.projects.length - 2) {
-      this.setButtonDisabled("btn-right-bg");
-      this.setButtonDisabled("btn-right-mb");
-    }
-  }
-
-  setButtonClass(id, disabled, hidden) {
-    document
-      .getElementById(id)
-      .setAttribute("class", "big-btns slider-btn " + disabled + " " + hidden);
-  }
-
-  setButtonActive(id) {
-    let e = document.getElementById(id).getAttribute("class");
-    if (e.indexOf("sr-only") === -1) {
-      this.setButtonClass(id, "", "");
-    }
-  }
-  setButtonDisabled(id) {
-    let e = document.getElementById(id).getAttribute("class");
-    if (e.indexOf("sr-only") === -1) {
-      this.setButtonClass(id, "disabled", "");
-    }
-  }
-
-  setButtons() {
-    if (this.state.width < 992) {
-      this.setButtonClass("btn-left-bg", "", "sr-only");
-      this.setButtonClass("btn-right-bg", "", "sr-only");
-      document
-        .getElementById("mobile-btns")
-        .setAttribute("class", "row center");
-    } else {
-      this.setButtonClass("btn-left-bg", "", "");
-      this.setButtonClass("btn-right-bg", "", "");
-      document
-        .getElementById("mobile-btns")
-        .setAttribute("class", "row center sr-only");
-    }
-  }
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
   render() {
+    console.log(this.state.activeProject);
     return (
       <div className="projects-section">
         <h3 className={this.state.isChanging ? "text-fadeInOut" : ""}>
           {this.state.activeSlide.title}
         </h3>
         <div className="row row1 center">
-          <div
-            className="big-btns slider-btn"
-            id="btn-left-bg"
-            onClick={this.onLeftSlide}
-          >
-            <FontAwesomeIcon icon={faChevronCircleLeft} />
+          <div className={this.state.width < 992 ? "sr-only" : ""}>
+            <div
+              className={
+                this.state.activeProject > 0
+                  ? "big-btns slider-btn"
+                  : "big-btns slider-btn disabled"
+              }
+              id="btn-left-bg"
+              onClick={this.onLeftSlide}
+            >
+              <FontAwesomeIcon icon={faChevronCircleLeft} />
+            </div>
           </div>
           <div className="wrapper">
-            <div className="slider" id="slider">
+            <div className="slider" ref={this.sliderRef}>
               <div className="slide slide-left" id="slider-left">
                 <ProjectBox
                   projectData={this.state.leftSlide}
@@ -249,24 +203,43 @@ class SkillBox extends React.Component {
               <div className="shadow"></div>
             </div>
           </div>
-          <div
-            className="big-btns slider-btn"
-            id="btn-right-bg"
-            onClick={this.onRightSlide}
-          >
-            <FontAwesomeIcon icon={faChevronCircleRight} />
+          <div className={this.state.width < 992 ? "sr-only" : ""}>
+            <div
+              className={
+                this.state.activeProject < this.state.projects.length - 1
+                  ? "big-btns slider-btn"
+                  : "big-btns slider-btn disabled"
+              }
+              id="btn-right-bg"
+              onClick={this.onRightSlide}
+            >
+              <FontAwesomeIcon icon={faChevronCircleRight} />
+            </div>
           </div>
         </div>
-        <div id="mobile-btns" className="row center sr-only">
+        <div
+          id="mobile-btns"
+          className={
+            this.state.width < 992 ? "row center" : "row center sr-only"
+          }
+        >
           <div
-            className="slider-btn"
+            className={
+              this.state.activeProject > 0
+                ? "big-btns slider-btn"
+                : "big-btns slider-btn disabled"
+            }
             id="btn-left-mb"
             onClick={this.onLeftSlide}
           >
             <FontAwesomeIcon icon={faChevronCircleLeft} />
           </div>
           <div
-            className="slider-btn"
+            className={
+              this.state.activeProject > this.state.projects.length - 1
+                ? "big-btns slider-btn"
+                : "big-btns slider-btn disabled"
+            }
             id="btn-right-mb"
             onClick={this.onRightSlide}
           >

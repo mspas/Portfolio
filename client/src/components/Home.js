@@ -21,7 +21,7 @@ function Home() {
               to other technologies. Right now I would describe myself as a{" "}
               <span className="colorFade">frontend</span> dev wannabe, eager to
               make some nice looking things, but interested in some
-              <span className="colorFade"> backend</span> work aswell.
+              <span className="colorFade"> backend</span> work as well.
             </p>
           </div>
           <div className="row links">

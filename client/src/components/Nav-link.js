@@ -4,23 +4,24 @@ import "../styles/header.sass";
 class NavLink extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { active: false, oldStatus: false, circle: "", text: "" };
+    this.state = { oldStatus: false, circle: "", text: "" };
   }
 
   componentDidMount() {
     this.setState({
       circle: "nav-" + this.props.name + " circle-inside",
-      text: "nav-" + this.props.name + " nav-label"
+      text: "nav-" + this.props.name + " nav-label",
     });
   }
 
   componentDidUpdate() {
     if (this.props.active !== this.state.oldStatus) {
+      //due to that, link is highlighted on first render as well
       if (this.props.active) this.setActive(this.props.name);
       else this.setInactive(this.props.name);
 
       this.setState({
-        oldStatus: this.props.active
+        oldStatus: this.props.active,
       });
     }
   }
@@ -43,10 +44,6 @@ class NavLink extends React.Component {
 
       element.setAttribute("class", newCl);
     }
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    return { active: props.active };
   }
 
   render() {

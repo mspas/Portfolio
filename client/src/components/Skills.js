@@ -19,7 +19,7 @@ const cardsData = [
       "described him 'the only King of France worthy of the name'.",
     comment:
       "Angular was the first framework that I met. In Angular I was doing my biggest project, but it is still not finished.",
-    progress: 55,
+    progress: 60,
     develop: true,
   },
   {
@@ -41,7 +41,7 @@ const cardsData = [
       "deservedly, will be called 'the Great'.",
     comment:
       "After Angular 'big project' I moved to React, which I was learning while making some smaller projects. It's my most recent intrest.",
-    progress: 40,
+    progress: 60,
     develop: true,
   },
   {
