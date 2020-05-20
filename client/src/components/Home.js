@@ -25,13 +25,13 @@ function Home() {
             </p>
           </div>
           <div className="row links">
-            <div className="col col-r col-md-6">
-              <a id="git" href="https://gihtub.com/mspas">
+            <div className="col">
+              <a id="git" href="https://github.com/mspas">
                 <img src={git} height={50} alt="GitHub" /> <br />
                 GitHub
               </a>
             </div>
-            <div className="col col-l col-md-6">
+            <div className="col">
               <a
                 id="lin"
                 href="https://www.linkedin.com/in/marcin-spasi%C5%84ski-8454bb1aa/"
