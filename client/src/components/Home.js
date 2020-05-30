@@ -36,7 +36,6 @@ class Home extends React.Component {
     let textElem = this.text.current;
     let bgImageElem = this.bgImage.current;
     let posText = this.getPos(textElem);
-    let posBg = this.getPos(bgImageElem);
 
     window.onscroll = (e) => {
       this.setScrollY(window.scrollY, posText);
