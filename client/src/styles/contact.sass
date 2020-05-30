@@ -6,6 +6,8 @@
     padding: 10px 20px
     padding-top: 20px
     color: $primary
+    @media screen and ( max-width: 300px )
+        padding: 10px 0
     .contact-title
         position: absolute
         top: 20%
@@ -19,7 +21,7 @@
         margin-left: auto
         margin-right: auto
         width: 50%
-        min-width: 200px
+        min-width: 100px
         height: 35px
         padding: 10px 20px
         border: none
@@ -31,7 +33,9 @@
             box-shadow: 1px 2px 5px black
         @media screen and ( max-width: 460px )
             width: 90%
-    .email-input
+        @media screen and ( max-width: 300px )
+            width: 90%
+    .subject-input
         height: 35px
     .text-input
         height: 120px
@@ -68,10 +72,10 @@
         background: $primary
         color: $secondary
         font-size: 18px
-        box-shadow: 1px 1px 1px #c7483ac7
+        box-shadow: 1px 1px 1px $fourth
         transition: box-shadow 0.2s
         &:hover
-            box-shadow: 1px 2px 5px #c7483ac7
+            box-shadow: 1px 2px 5px $fourth
     .alert-box
         position: absolute
         right: 20%
@@ -81,6 +85,7 @@
         min-height: 50px
         border-radius: 3px
         box-shadow: 1px 2px 5px $primary
+        color: $white
         animation: fadeIn 1s
         .alert-content
             position: relative
@@ -98,6 +103,7 @@
                 text-align: center
                 font-size: 0.8em
     .success
+        color: $fourth !important
         background: #82ff62
     .error
         background: $fifth

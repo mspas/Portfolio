@@ -33,7 +33,7 @@
             transform: translateZ(26vw)
         img
             max-height: 150px
-            height: 60%
+            max-width: 90%
         p
             margin-top: 30px
             font-family: "Almendra SC", serif
@@ -43,6 +43,8 @@
             color: $primary
             @media screen and ( max-width: 420px )
                 margin-top: 15px
+            @media screen and ( max-width: 250px )
+                visibility: hidden
         .exp-bar
             position: relative
             width: 80%
@@ -63,6 +65,8 @@
                         right: 20px
                     100%
                         right: 2px
+            @media screen and ( max-width: 280px )
+                visibility: hidden
             .exp
                 position: absolute
                 top: 2px
@@ -87,6 +91,8 @@
             line-height: 1
             .comment
                 font-style: italic
+            @media screen and ( max-width: 250px )
+                font-size: 0.5rem
         ::-webkit-scrollbar 
             width: 3px
         ::-webkit-scrollbar-track 

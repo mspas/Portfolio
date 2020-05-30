@@ -130,7 +130,7 @@ class Contact extends React.Component {
         <div className="contact-content">
           <span className="contact-title">Contact</span>
           <input
-            className="input email-input"
+            className="input subject-input"
             type="text"
             placeholder={"subject"}
             onChange={this.handleSubjectChange}
