@@ -58,7 +58,6 @@ $descWidth: 70vw
         font-weight: bold
         letter-spacing: 3px
         background-image: url("../assets/bg-big.jpg")
-        background-position: 50% 50%
         background-size: calc(100vw + 400px) calc(100vh + 400px)
         background-position: center
         background-attachment: fixed
@@ -68,8 +67,12 @@ $descWidth: 70vw
         user-select: none
         cursor: pointer
         transition: 0.4s ease-out
+        @media screen and ( min-width: 420px )
+          background-position: 50% 50%
         @media screen and ( max-width: 720px )
           background-size: auto 100vh
+        @media screen and ( max-width: 420px )
+          animation: backgroundFloat 5s linear infinite alternate-reverse
         &:hover
           letter-spacing: 5px
       .description
