@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
-//const fs = require("fs");
+const rateLimit = require("express-rate-limit");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -10,24 +10,34 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//const binaryData = fs.readFileSync("CV.pdf");
-//const fileBase64 = new Buffer.from(binaryData).toString("base64");
+const minutesTimeout = 5;
+
+const limiter = rateLimit({
+  windowMs: minutesTimeout * 60 * 1000,
+  max: 1, // limit when timeout fires
+  handler: (req, res) => {
+    res.send({
+      statusCode: "429",
+      message: `Sorry! ${minutesTimeout} mins timeout between emails! Don't try to spam please!`,
+    });
+  },
+});
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "mspasbot@gmail.com",
-    pass: "Niebanujbandyto123",
+    user: "@gmail.com",
+    pass: "",
   },
 });
 
-app.post("/api/send-mail", (req, res) => {
+app.post("/api/send-email", limiter, (req, res) => {
   let mailSubject = req.body.mailSubject;
   let mailText = req.body.mailText;
 
   let mailOptions = {
-    from: "mspasbot@gmail.com",
-    to: "marcin7789@gmail.com",
+    from: "@gmail.com",
+    to: "@gmail.com",
     subject: mailSubject,
     text: mailText,
   };
@@ -35,18 +45,23 @@ app.post("/api/send-mail", (req, res) => {
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
-      res.send({ statusCode: "404", error: error });
+      res.send({
+        statusCode: "404",
+        message:
+          "Sorry! Email has not been sent. Please try to conntact me via linkedin instead.",
+      });
     } else {
-      res.send({ statusCode: "200", error: true });
+      res.send({
+        statusCode: "200",
+        message: "Email was sent successfully!",
+      });
     }
   });
 });
 
 if (process.env.NODE_ENV === "production") {
-  // Serve any static files
   app.use(express.static(path.join(__dirname, "client/build")));
 
-  // Handle React routing, return all requests to React app
   app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });

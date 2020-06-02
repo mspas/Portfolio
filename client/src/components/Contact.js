@@ -36,7 +36,7 @@ class Contact extends React.Component {
   };
 
   validateMailData() {
-    if (this.state.mailSubject.length < 1) {
+    if (this.state.mailSubject.length < 0) {
       this.setState({
         showAlert: true,
         alertText: "Subject cannot be an empty field!",
@@ -44,18 +44,10 @@ class Contact extends React.Component {
       });
       return false;
     }
-    if (this.state.mailText.length < 1) {
+    if (this.state.mailText.length < 0) {
       this.setState({
         showAlert: true,
         alertText: "Message cannot be an empty field!",
-        alertType: false,
-      });
-      return false;
-    }
-    if (!this.state.canSendMail) {
-      this.setState({
-        showAlert: true,
-        alertText: "5 min timeout between emails! Don't try to spam please!",
         alertType: false,
       });
       return false;
@@ -65,14 +57,13 @@ class Contact extends React.Component {
 
   handleSendMail = (event) => {
     let validate = this.validateMailData();
-    let check = false;
 
     if (validate) {
       this.setState({
         isLoading: true,
       });
 
-      fetch("/api/send-mail", {
+      fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,36 +75,13 @@ class Contact extends React.Component {
       })
         .then((res) => res.json())
         .then((json) => {
-          if (json.statusCode !== "200")
-            this.setState({
-              showAlert: true,
-              alertText:
-                "Sorry! Email has not been sent. Please try to conntact me via linkedin instead.",
-              alertType: false,
-              isLoading: false,
-            });
-          else {
-            check = true;
-            this.setState({
-              showAlert: true,
-              alertText: "Email was sent successfully!",
-              alertType: true,
-              isLoading: false,
-            });
-          }
-        })
-        .then(() => {
-          if (check) {
-            this.setState({
-              canSendMail: false,
-            });
-          }
-          setTimeout(() => {
-            this.setState({
-              canSendMail: true,
-            });
-            check = false;
-          }, 300000);
+          console.log(json);
+          this.setState({
+            showAlert: true,
+            alertText: json.message,
+            alertType: json.statusCode === "200" ? true : false,
+            isLoading: false,
+          });
         });
     }
   };
