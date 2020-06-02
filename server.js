@@ -19,7 +19,6 @@ const limiter = rateLimit({
       message: `Sorry! 5 mins timeout between emails! Don't try to spam please!`,
     });
   },
-  skipFailedRequests: true,
 });
 
 app.use("/api/send-email", limiter);
