@@ -11,7 +11,6 @@ class Contact extends React.Component {
       mailSubject: "",
       mailText: "",
       showAlert: false,
-      canSendMail: true,
       alertText: "",
       alertType: false,
       isLoading: false,
@@ -108,12 +107,13 @@ class Contact extends React.Component {
             placeholder={"type your message"}
             onChange={this.handleMessageChange}
           />
-          {this.state.isLoading && (
-            <span className="spinner">
-              <Loader type="TailSpin" color="#00BFFF" height={50} width={50} />
-            </span>
-          )}
-          <button onClick={this.handleSendMail}>send email</button>
+          <button onClick={this.handleSendMail}>
+            {this.state.isLoading ? (
+              <Loader type="TailSpin" color="#fff" height={25} width={25} />
+            ) : (
+              "send email"
+            )}
+          </button>
           {this.state.showAlert && (
             <div
               className={

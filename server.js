@@ -11,16 +11,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const minutesTimeout = 5;
-
 const limiter = rateLimit({
   windowMs: minutesTimeout * 60 * 1000,
   max: 1, // limit when timeout fires
   handler: (req, res) => {
-    res.send({
+    res.status(429).send({
       statusCode: "429",
       message: `Sorry! ${minutesTimeout} mins timeout between emails! Don't try to spam please!`,
     });
   },
+  skipFailedRequests: true,
 });
 
 const transporter = nodemailer.createTransport({
@@ -45,13 +45,13 @@ app.post("/api/send-email", limiter, (req, res) => {
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
-      res.send({
+      res.status(500).send({
         statusCode: "404",
         message:
           "Sorry! Email has not been sent. Please try to conntact me via linkedin instead.",
       });
     } else {
-      res.send({
+      res.status(200).send({
         statusCode: "200",
         message: "Email was sent successfully!",
       });
