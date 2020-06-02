@@ -57,7 +57,7 @@ class Contact extends React.Component {
   handleSendMail = (event) => {
     let validate = this.validateMailData();
 
-    if (validate) {
+    if (validate && !this.state.isLoading) {
       this.setState({
         isLoading: true,
       });
@@ -78,8 +78,14 @@ class Contact extends React.Component {
             showAlert: true,
             alertText: json.message,
             alertType: json.statusCode === "200" ? true : false,
-            isLoading: false,
           });
+        })
+        .then(() => {
+          setTimeout(() => {
+            this.setState({
+              isLoading: false,
+            });
+          }, 5000);
         });
     }
   };
