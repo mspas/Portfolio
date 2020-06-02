@@ -14,6 +14,7 @@ class Contact extends React.Component {
       alertText: "",
       alertType: false,
       isLoading: false,
+      canSendMail: true,
     };
     this.handleSendMail = this.handleSendMail.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
@@ -51,13 +52,21 @@ class Contact extends React.Component {
       });
       return false;
     }
+    if (!this.state.canSendMail) {
+      this.setState({
+        showAlert: true,
+        alertText: "Too many messages! Dont'spam please!",
+        alertType: false,
+      });
+      return false;
+    }
     return true;
   }
 
   handleSendMail = (event) => {
     let validate = this.validateMailData();
 
-    if (validate && !this.state.isLoading) {
+    if (validate) {
       this.setState({
         isLoading: true,
       });
@@ -78,14 +87,16 @@ class Contact extends React.Component {
             showAlert: true,
             alertText: json.message,
             alertType: json.statusCode === "200" ? true : false,
+            isLoading: false,
+            canSendMail: false,
           });
         })
         .then(() => {
           setTimeout(() => {
             this.setState({
-              isLoading: false,
+              canSendMail: true,
             });
-          }, 5000);
+          }, 2 * 60000);
         });
     }
   };

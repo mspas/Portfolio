@@ -7,21 +7,22 @@ const rateLimit = require("express-rate-limit");
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.set("trust proxy", 1);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const minutesTimeout = 5;
 const limiter = rateLimit({
-  windowMs: 5 * 60 * 1000, // 5 minutes
-  max: 1, // start blocking after 1 request
+  windowMs: minutesTimeout * 60 * 1000,
+  max: 1, // limit when timeout fires
   handler: (req, res) => {
     res.status(429).send({
       statusCode: "429",
-      message: `Sorry! 5 mins timeout between emails! Don't try to spam please!`,
+      message: `Sorry! ${minutesTimeout} mins timeout between emails! Don't try to spam please!`,
     });
   },
 });
-
-app.use("/api/send-email", limiter);
 
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -31,7 +32,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/api/send-email", (req, res) => {
+app.post("/api/send-email", limiter, (req, res) => {
   let mailSubject = req.body.mailSubject;
   let mailText = req.body.mailText;
 
