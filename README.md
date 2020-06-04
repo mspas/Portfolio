@@ -1,4 +1,4 @@
-# React App
+# Portfolio
 
 ## Usage
 
@@ -11,13 +11,15 @@ npm i nodemon -g
 Install server and client dependencies
 
 ```
-yarn
+npm install
 cd client
-yarn
+npm install
 ```
 
 To start the server and client at the same time (from the root of the project)
 
 ```
-yarn dev
+npm run dev
 ```
+
+The app will be running in localhost:3000
