@@ -43,7 +43,7 @@ const projectsDetails = [
   {
     title: "Clip Downloader",
     gitURL: "https://github.com/mspas/Clip-downloader",
-    link: "https://clipzz.herokuapp.com/",
+    link: "https://clipzzz.herokuapp.com/",
     text: "Video downloader",
     tech: "React, Node.js",
     desc:
@@ -76,7 +76,7 @@ const projectsDetails = [
     text: "Portfolio",
     tech: "React, Sass",
     desc:
-      "You are here right now. I wanted to make something nice with 3D-ish effects. It was quite fun, after all. Especially when it finally worked. To make those boxes in skills section I needed to use some tutorials, not gonna lie. After getting that knowledge, the best part was figuring out how to make this project-slider that you're looking at right now.",
+      "You are here right now. I wanted to make something nice with 3D-ish effects. It was quite fun, after all. Especially when it finally worked. To make those boxes in skills section I needed to use some tutorials, not gonna lie. After getting that knowledge, the best part was figuring out how to make this project-slider that you're looking at right now. The 'About' view is made of backgrounds which positions are changing based on a coursor positions. Mouse handler I wrote for the project 'Nothing'.",
   },
 ];
 
