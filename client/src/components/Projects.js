@@ -53,8 +53,8 @@ const projectsDetails = [
   },
   {
     title: "CheckIT",
-    gitURL: "https://github.com/mspas/CheckIT",
-    link: "https://mspas.github.io/CheckIT/login",
+    gitURL: "https://github.com/mspas/CheckIT-Demo",
+    link: "https://mspas.github.io/CheckIT-Demo",
     text: "Tracker of attendence in lectures",
     tech: "React, Redux",
     desc:
