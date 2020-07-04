@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointDown } from "@fortawesome/free-regular-svg-icons";
 
 const mouse = new Mouse();
-const updateRate = 1;
+const updateRate = 3;
 
 class Home extends React.Component {
   constructor(props) {

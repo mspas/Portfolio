@@ -24,7 +24,7 @@ $descWidth: 70vw
       animation: backgroundFloat 5s linear infinite alternate-reverse
     .text-wrap
       position: relative
-      max-width: 50%
+      max-width: 60%
       font-size: 5rem
       line-height: 1.1em
       padding: 5px
@@ -81,6 +81,8 @@ $descWidth: 70vw
         color: $fourth
         cursor: pointer
         animation: zoomIn 0.3s ease-out forwards
+        @media screen and ( min-width: 1244px )
+          padding: 20px 10%
         .description-text
           max-height: 255px
           padding: 0 10px
