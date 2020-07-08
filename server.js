@@ -27,8 +27,8 @@ const limiter = rateLimit({
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "mspasbot@gmail.com",
-    pass: "Niebanujbandyto123",
+    user: "@gmail.com",
+    pass: "",
   },
 });
 
@@ -37,8 +37,8 @@ app.post("/api/send-email", limiter, (req, res) => {
   let mailText = req.body.mailText;
 
   let mailOptions = {
-    from: "mspasbot@gmail.com",
-    to: "marcin7789@gmail.com",
+    from: "@gmail.com",
+    to: "@gmail.com",
     subject: mailSubject,
     text: mailText,
   };
