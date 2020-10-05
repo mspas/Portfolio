@@ -6,7 +6,7 @@ import "../styles/skill-box.sass";
 
 class SkillBox extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.expRef = React.createRef();
   }
 
@@ -15,16 +15,19 @@ class SkillBox extends React.Component {
   }
 
   render() {
+    const {
+      data: { img, name, text, develop, comment },
+    } = this.props;
     return (
       <div className="box-card">
         <div className="card-front">
           <div className="card-img center">
-            <img src={this.props.data.img} alt={this.props.data.name} />
+            <img src={img} alt={name} />
           </div>
-          <p>{this.props.data.name}</p>
+          <p>{name}</p>
           <div className="exp-bar">
             <div className="exp" ref={this.expRef}></div>
-            <div className={this.props.data.develop ? "developing" : "sr-only"}>
+            <div className={develop ? "developing" : "sr-only"}>
               <FontAwesomeIcon icon={faAngleRight} />
               <FontAwesomeIcon icon={faAngleRight} />
               <FontAwesomeIcon icon={faAngleRight} />
@@ -33,8 +36,8 @@ class SkillBox extends React.Component {
         </div>
         <div className="card-side">
           <div className="card-desc">
-            <p>{this.props.data.text}</p>
-            <p className="comment">{this.props.data.comment}</p>
+            <p>{text}</p>
+            <p className="comment">{comment}</p>
           </div>
         </div>
       </div>

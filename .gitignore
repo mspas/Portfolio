@@ -3,7 +3,8 @@
 # dependencies
 node_modules
 /client/node_modules
-CV.pdf
+.env
+/client/.env
 key.txt
 
 # testing

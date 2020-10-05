@@ -4,7 +4,7 @@ import NavLink from "./Nav-link";
 
 class Header extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       scrolledPage: "about",
       currentActive: "about",

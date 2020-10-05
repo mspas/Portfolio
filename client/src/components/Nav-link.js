@@ -3,7 +3,7 @@ import "../styles/header.sass";
 
 class NavLink extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = { oldStatus: false, circle: "", text: "" };
   }
 

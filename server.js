@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const dotenv = require("dotenv").config();
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
 const rateLimit = require("express-rate-limit");
@@ -27,8 +28,8 @@ const limiter = rateLimit({
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "@gmail.com",
-    pass: "",
+    user: process.env.MAIL_BOT,
+    pass: process.env.MAIL_BOT_PASS,
   },
 });
 
@@ -37,8 +38,8 @@ app.post("/api/send-email", limiter, (req, res) => {
   let mailText = req.body.mailText;
 
   let mailOptions = {
-    from: "@gmail.com",
-    to: "@gmail.com",
+    from: process.env.MAIL_BOT,
+    to: process.env.CONTACT_MAIL,
     subject: mailSubject,
     text: mailText,
   };
@@ -49,7 +50,7 @@ app.post("/api/send-email", limiter, (req, res) => {
       res.status(500).send({
         statusCode: "404",
         message:
-          "Sorry! Email has not been sent. Please try to conntact me via linkedin instead.",
+          "Sorry! Email has not been sent. Please try to conntact me via Linkedin instead.",
       });
     } else {
       res.status(200).send({

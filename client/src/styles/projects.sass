@@ -19,10 +19,13 @@ $slideVertical: 90vw
     .row1
         height: calc(15vw + 100px)
         margin-top: 50px
-    h3 
+    h3
         text-align: center
         color: $secondary
         letter-spacing: 6px
+        margin: 0 10px
+        span
+            font-size: 15px
 .projects-section::before
     z-index: -1
     top: -5vh
@@ -49,10 +52,8 @@ $slideVertical: 90vw
         margin-top: 9vw
     @media screen and ( max-width: 420px )
         margin-top: $slideMobile
-    .slider-btn 
+    .slider-btn
         margin: 0 10px
-
-
 
 .wrapper
     position: relative
@@ -60,7 +61,7 @@ $slideVertical: 90vw
     width: $slide
     @media screen and ( max-width: 991px )
         width: $slideMobile
-        height: $slideMobile / 2 
+        height: $slideMobile / 2
     @media screen and ( max-width: 420px )
         width: $slideVertical / 1.5
         height: $slideVertical
@@ -102,7 +103,7 @@ $slideVertical: 90vw
             right: 0
             top: 0
             transform: rotate3d(0, 1, 0, 90deg) translateZ($slide/2)
-            @media screen and ( max-width: 992px )  
+            @media screen and ( max-width: 992px )
                 transform: rotate3d(0, 1, 0, 90deg) translateZ($slideMobile/2)
             @media screen and ( max-width: 420px )
                 transform: rotate3d(0, 1, 0, 90deg) translateZ($slideVertical/3)
@@ -130,15 +131,17 @@ $slideVertical: 90vw
     font-size: 0.75em
     .project-info
         background: #ffffff11
-        padding: 20px
-        border-radius: 20px
+        padding: 20px 40px
+        border-radius: 5px
         font-size: 0.8em
+        @media screen and ( max-width: 455px )
+            padding: 20px
+            font-size: 1em
         .text-project
             color: $fifth
             letter-spacing: 2px
         .desc-project
             text-align: justify
-
 
 .animationSlideLeft
     animation: rotateLeft 0.7s linear forwards
@@ -147,7 +150,7 @@ $slideVertical: 90vw
             transform: perspective(1000px) rotate3d(0, 1, 0, 0deg)
         100%
             transform: perspective(1000px) rotate3d(0, 1, 0, 90deg)
-            
+
 .animationSlideRight
     animation: rotateRight 0.7s linear forwards
     @keyframes rotateRight

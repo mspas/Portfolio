@@ -6,7 +6,7 @@ import "../styles/contact.sass";
 
 class Contact extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       mailSubject: "",
       mailText: "",
@@ -18,7 +18,7 @@ class Contact extends React.Component {
     };
     this.handleSendMail = this.handleSendMail.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
-    this.onCloseAlert = this.onCloseAlert.bind(this);
+    this.handleCloseAlert = this.handleCloseAlert.bind(this);
   }
 
   handleSubjectChange = (event) => {
@@ -101,9 +101,9 @@ class Contact extends React.Component {
     }
   };
 
-  onCloseAlert() {
+  handleCloseAlert = (event) => {
     this.setState({ showAlert: false });
-  }
+  };
 
   render() {
     return (
@@ -141,7 +141,7 @@ class Contact extends React.Component {
                 <FontAwesomeIcon
                   className="close-icon"
                   icon={faTimes}
-                  onClick={this.onCloseAlert}
+                  onClick={this.handleCloseAlert}
                 />
                 <p>{this.state.alertText}</p>
               </div>

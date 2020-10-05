@@ -11,7 +11,7 @@ const updateRate = 3;
 
 class Home extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = { scrollY: 0, counter: 0, showDescription: false };
 
     this.text = React.createRef();

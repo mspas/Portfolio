@@ -7,24 +7,15 @@ import { faLink, faCode } from "@fortawesome/free-solid-svg-icons";
 
 class ProjectBox extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { elemClass: "slide" };
-  }
-
-  componentDidMount() {
-    let c = "slide-base slide" + this.props.i;
-    this.setState({
-      elemClass: c,
-    });
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    return { elemClass: "slide-base slide" + props.i };
+    super();
   }
 
   render() {
     return (
-      <div className={this.state.elemClass}>
+      <div
+        className="slide-base"
+        style={{ backgroundImage: `url(${this.props.projectData.img})` }}
+      >
         <div className="links-wrap">
           <div className="link center">
             <a href={this.props.projectData.gitURL}>
