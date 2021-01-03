@@ -19,16 +19,17 @@ const projectsDetails = [
     title: "Pen & Paper",
     gitURL: "https://github.com/mspas/Pen-and-paper",
     link: "",
-    text: "Social media, forum",
+    text: "Social media, forum, classic RPG games",
     tech: "Angular 8, C#, .NET Core 2.0",
     img: pap,
     desc:
       "The 'social media' module of this app I made for my thesis. What I mean by 'social-media' is user profiles, friends lists, creating events " +
       "and private messages. Client APP was made with Angular 5, when API with .NET Core 2.0 and Entity Framework. After that I created also a forum module. " +
       "Then I reworked the whole graphic desing. After that I reworked API, since I wasn't really happy how it was done. Then I reworked the whole " +
-      "graphic desing again... Currently, after a break that I've made for other projects, I came back to this one and with gained expirience and knowledge, " +
-      "I'm refactoring code and adding new features. I also updated client APP to 8th version of Angular, and converted styles to use preprocessor SASS." +
-      "Due to all that reworks, the app is not finished yet. Also I'm not satisfied enough to publish a live demo yet, but I'm working on that.",
+      "graphic desing again... Currently, after a break that I've made for other projects and uni duties, I came back to this one and with gained " +
+      "expirience and knowledge, I also updated client APP to 8th version of Angular, and converted styles to use preprocessor SASS." +
+      "Due to all that reworks, the app is not finished yet. Also I'm not satisfied enough to publish a live demo yet, but I'm working on that. " +
+      "Lately, I added a proper pagination for topics on forum, the same I will need to do for searching functionality and private messages. ",
   },
   {
     title: "Album",
@@ -39,10 +40,10 @@ const projectsDetails = [
     img: album,
     desc:
       "That one is my latest project, which I made for a local school. They collected quite a few old, historical photos and prepared a exhibition in local school. Then I decided that " +
-      "I can help with publishing it to the whole local community. App is made with React with slight use of Redux. API is made with Node.js, with MongoDB database. " +
-      "I've prepared whole admin panel (a 'CMS', if I am not mistaken) for uploading new photos and editing existing ones. To store images I'm using a 3rd party API - Cloudinary. " +
-      "I used this project to play a bit with well known features for that kind of photo albums, but made all myself instead of using libraries, like - sliding gallery, " +
-      "tumbnails-subgallery, swiping images on mobile, fetching data from API with pagination but fired on scrolling down the content, etc.",
+      "I can help with publishing it to the whole local community. App is made with React with slight use of Redux. API is made with Node.js and MongoDB database. " +
+      "I've prepared whole admin panel for uploading new photos and editing existing ones. To store images I'm using a 3rd party API - Cloudinary. " +
+      "If it comes to some interesting features from a dev point ov view, I would mention - sliding gallery with thumbnails, " +
+      "swiping images on mobile, fetching data from API with pagination but fired on scrolling down the content, uploading images through server.",
   },
   {
     title: "CheckIT",
@@ -111,8 +112,7 @@ const projectsDetails = [
     tech: "React, Sass",
     img: port,
     desc:
-      "You are here right now. I wanted to make something nice with 3D-ish effects. It was quite fun, after all, especially when it finally worked. To make those boxes in " +
-      "skills section I needed to use some tutorials, not gonna lie. But after getting that knowledge, the best part of this project was figuring out how to make this " +
+      "You are here right now. I wanted to make something nice with 3D-ish effects. It was quite fun, after all, especially when it finally worked. The best part of this project was figuring out how to make this " +
       "project-slider that you're looking at right now. The 'About' view is made of backgrounds which positions are changing based on a coursor positions. Mouse " +
       "handler that I used, I made previously for the project called 'Nothing'.",
   },
@@ -139,7 +139,7 @@ const cardsData = [
       "Honestly, I run into C# and .NET by accident. That was due to tech stack of group project on university where I was responsible for " +
       "front-end layer ('Office Pathfinder' in project's section). I've also tried a Java Spring, it wasn't bad, but at the end of the day " +
       "struggles with Maven project configuration (especially when you need to install a library from outside of the marketplace) made for me " +
-      "a assumption about C# and .NET as a royal couple bringing peace and prosperity.",
+      "a assumption about C# and .NET as a royal couple bringing peace and prosperity. I also decided to stick with .NET also for my thesis project.",
     comment:
       "Marriage between Henry VII Tudor and Elizabeth of York ended War of the Roses - last episode of 100-Years War. Tudors eventually came victorious " +
       "among the other noble families competeting for the English crown. Marriage between the members of two opposite factions bring finally " +
@@ -177,7 +177,7 @@ const cardsData = [
     img: sql,
     text:
       "I'm not gonna lie, Entity Framework makes you a bit lazy in case of SQL. However, I was learning about creation and maintanance of relational databases." +
-      "So writing some queries in SQL or SPARQL won't be a huge surprise for me.",
+      "So writing some queries in SQL won't be a huge surprise for me.",
     comment:
       "Edward the Confessor reign was remembered as a peaceful time, but in reality even though the king was a honest man, he wasn't a independent " +
       "ruler, when three english earls held true power. Edward did not have any child and with his death the succession war fired. Eventually England " +
@@ -192,8 +192,8 @@ const cardsData = [
       "First typically OOP language that I was learning. I left Java for C# and get into .NET framework. Recently, due to my university courses, I got some basic knowledge abot Spring. Return to Java is still possible.",
     comment:
       "Henry V Lancaster ruled at the late phase of 100-Years War. His reign was remember due to his victorious campaigns in France, which effected " +
-      "with marriage with french princess assuring french throne for Henry's son. Unfortunetely Henry V died when his only son was an infant. Rule of baby " +
-      "king came with the chaos in english-french relation and breaks previous agreement. Lately, Henry VI will be called mad and dethroned. " +
+      "with marriage with french princess assuring french throne for Henry's son. Unfortunetely Henry V died when his only son was an infant. Rule of baby-king " +
+      "came with the chaos in english-french relation and breaks previous agreement. Lately, Henry VI will be called mad and dethroned. " +
       "Finally House of Tudors took over the english crown.",
     progress: 30,
     develop: false,

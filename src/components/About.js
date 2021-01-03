@@ -10,17 +10,17 @@ class About extends React.Component {
       <div className="description" onClick={this.props.onClick}>
         <div className="description-text">
           I'm computer science <span className="colorFade">student </span>
-          living in Wrocław. Due to all university duties I've started my
-          programming story from C++, Java and a few low-level programming
-          languages. However, after some time, I decided to focus completely on
-          web developement and eventually end up with C# .NET and JS-related
-          frameworks. Since it's still a begining of this adventure and it's all
-          about learning, I'm open to other technologies. Nonetheless, ReactJS
-          seems to be my biggest interest for now. Long story short, I would
-          describe myself as a <span className="colorFade">frontend</span> dev
-          wannabe, eager to make some nice looking things, but interested in
-          some
-          <span className="colorFade"> backend</span> work as well.
+          located in Wrocław. Due to all university duties I've started my
+          programming journey from C, C++ and Java. However, after some time
+          (precisely, after my uni project "Office Pathfinder", more in
+          "Projects" section), I decided to focus completely on web developement
+          and eventually end up with C# .NET and JS-related frameworks.
+          Nonetheless, <span className="colorFade">frontend</span> is my biggest
+          interest for now. For me, it gives vent to imagination and creativity
+          with some technical spice within. But some ideas include
+          functionalities that require also a server-side work. Thanks for that
+          I will not feel so lost if it comes to some{" "}
+          <span className="colorFade">backend</span> work.
         </div>
         <div className="row links">
           <div className="col">

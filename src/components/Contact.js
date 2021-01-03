@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import Loader from "react-loader-spinner";
 import "../styles/contact.sass";
+import{ init, send } from 'emailjs-com';
 
 class Contact extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Contact extends React.Component {
   };
 
   validateMailData() {
-    if (this.state.mailSubject.length < 0) {
+    if (this.state.mailSubject.length < 1) {
       this.setState({
         showAlert: true,
         alertText: "Subject cannot be an empty field!",
@@ -44,7 +45,7 @@ class Contact extends React.Component {
       });
       return false;
     }
-    if (this.state.mailText.length < 0) {
+    if (this.state.mailText.length < 1) {
       this.setState({
         showAlert: true,
         alertText: "Message cannot be an empty field!",
@@ -71,33 +72,35 @@ class Contact extends React.Component {
         isLoading: true,
       });
 
-      fetch("/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          mailSubject: this.state.mailSubject,
-          mailText: this.state.mailText,
-        }),
-      })
-        .then((res) => res.json())
-        .then((json) => {
-          this.setState({
-            showAlert: true,
-            alertText: json.message,
-            alertType: json.statusCode === "200" ? true : false,
-            isLoading: false,
-            canSendMail: false,
-          });
+    init(process.env.REACT_APP_EMAIL_USER_ID);
+
+      
+    let templateParams = {
+      'subject': this.state.mailSubject,
+      'message': this.state.mailText
+    }
+
+      send(process.env.REACT_APP_EMAIL_SERVICE_ID, process.env.REACT_APP_EMAIL_TEMPLATE_ID, templateParams, process.env.REACT_APP_EMAIL_USER_ID)
+      .then((res) => {
+        console.log(res.status)
+        this.setState({
+          showAlert: true,
+          alertText: res.status === 200 ? "Email was sent successfully!" : "Error. Please try again later or contact me via Linkedin.",
+          alertType: res.status === 200 ? true : false,
+          isLoading: false,
+          canSendMail: false,
         })
-        .then(() => {
-          setTimeout(() => {
-            this.setState({
-              canSendMail: true,
-            });
-          }, 2 * 60000);
-        });
+      },
+      (error) => {
+        this.setState({
+          showAlert: true,
+          alertText: "Error. Please try again later or contact me via Linkedin.",
+          alertType: false,
+          isLoading: false,
+          canSendMail: false,
+        })
+        console.log('FAILED...', error);
+      });
     }
   };
 

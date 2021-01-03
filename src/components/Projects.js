@@ -90,14 +90,75 @@ class SkillBox extends React.Component {
     }
   };
 
+  onThumbnailClick = (index) => {
+    if (index !== this.state.activeProject) {
+      let activeId = this.state.activeProject;
+
+      let animation =
+        activeId < index ? "animationSlideRight" : "animationSlideLeft";
+      let leftId = index === 0 ? 0 : index - 1;
+      let rightId =
+        index === this.state.projects.length - 1 ? index : index + 1;
+
+      this.setState({
+        leftSlide: this.state.projects[index],
+        rightSlide: this.state.projects[index],
+        isChanging: true,
+      });
+
+      this.sliderRef.current.setAttribute("class", `slider ${animation}`);
+      setTimeout(() => {
+        this.setState(
+          {
+            leftSlide: this.state.projects[leftId],
+            activeSlide: this.state.projects[index],
+            rightSlide: this.state.projects[rightId],
+            activeProject: index,
+            isChanging: false,
+          },
+          () => {
+            this.sliderRef.current.setAttribute("class", "slider");
+          }
+        );
+      }, 700);
+    }
+  };
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
   render() {
+    let thumbnails = projectsDetails.map((project, index) => {
+      return (
+        <div className="thumbnail" key={index}>
+          <div
+            className={
+              this.state.activeProject === index
+                ? "thumbnail-wrap active"
+                : "thumbnail-wrap"
+            }
+            onClick={() => this.onThumbnailClick(index)}
+          >
+            <img src={project.img} alt={project.title} />
+            <div className="thumbnail-info">
+              <span className="title">{project.title}</span>
+            </div>
+          </div>
+        </div>
+      );
+    });
+
     return (
       <div className="projects-section">
-        <h3 className={this.state.isChanging ? "text-fadeInOut" : ""}>
+        <div className={this.state.width < 1200 ? "sr-only" : "thumbnail-list"}>
+          {thumbnails}
+        </div>
+        <h3
+          className={
+            this.state.isChanging ? "text-title text-fadeInOut" : "text-title"
+          }
+        >
           {this.state.activeSlide.title}{" "}
           <span>
             {this.state.activeProject + 1}/{this.state.projects.length}

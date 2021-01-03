@@ -19,11 +19,11 @@ $slideVertical: 90vw
     .row1
         height: calc(15vw + 100px)
         margin-top: 50px
-    h3
+    .text-title
         text-align: center
         color: $secondary
         letter-spacing: 6px
-        margin: 0 10px
+        margin: 50px 10px 0 10px
         span
             font-size: 15px
 .projects-section::before
@@ -33,6 +33,60 @@ $slideVertical: 90vw
     transform: skewY(-2deg)
     @media screen and ( max-width: 1100px )
         height: 100px
+.thumbnail-list
+    display: flex
+    flex-flow: wrap
+    padding: 20px 15%
+    background-color: rgba(255, 255, 255, 0.014)
+    .thumbnail
+        flex: 1
+        box-sizing: border-box
+        margin: 15px
+        .active
+            transition: 0.2s ease-in
+            box-shadow: 0px 0px 50px 5px rgba(255, 255, 255, 0.315)
+        .thumbnail-wrap
+            position: relative
+            display: block
+            margin: 0 auto
+            width: 250px
+            height: 135px
+            cursor: pointer
+            &:hover
+                img
+                    filter: blur(4px)
+                    transition: 0.2s ease-in
+                .thumbnail-info
+                    visibility: visible
+                    background-color: rgba(255, 255, 255, 0.212)
+                    transition: 0.2s ease-in
+                    .title
+                        opacity: 1
+                        transition: 0.2s ease-in
+            img
+                display: block
+                margin: 0 auto
+                width: 250px
+                height: 135px
+            .thumbnail-info
+                position: absolute
+                display: flex
+                align-items: center
+                justify-content: center
+                text-align: center
+                visibility: hidden
+                width: 250px
+                height: 100%
+                top: 0
+                left: 0
+                padding: 40px
+                .title
+                    font-size: 21px
+                    font-weight: bold
+                    line-height: 18px
+                    opacity: 0
+                    user-select: none
+                    color: #0000007c
 .slider-btn
     margin: 0 7vw
     font-size: 2em

@@ -9,7 +9,7 @@ $descWidth: 70vw
   .container-bg
     height: 100%
     width: 100%
-    background-image: url("../assets/bg-big.jpg")
+    background-image: url("../assets/bg-big.webp")
     background-size: calc(100vw + 400px) calc(100vh + 400px)
     background-repeat: no-repeat
     display: flex
@@ -57,7 +57,7 @@ $descWidth: 70vw
         -moz-osx-font-smoothing: grayscale
         font-weight: bold
         letter-spacing: 3px
-        background-image: url("../assets/bg-big.jpg")
+        background-image: url("../assets/bg-big.webp")
         background-size: calc(100vw + 400px) calc(100vh + 400px)
         background-position: center
         background-attachment: fixed
@@ -76,13 +76,15 @@ $descWidth: 70vw
         &:hover
           letter-spacing: 5px
       .description
-        padding: 20px 10px
+        padding: 5%
+        padding-bottom: 2%
         margin: 0
         color: $fourth
         cursor: pointer
         animation: zoomIn 0.3s ease-out forwards
         @media screen and ( min-width: 1244px )
-          padding: 20px 10%
+          padding: 5%
+          padding-bottom: 2%
         .description-text
           max-height: 255px
           padding: 0 10px
@@ -90,15 +92,15 @@ $descWidth: 70vw
           font-size: 1.2rem
           line-height: 1.2em
           @media screen and ( max-width: 1244px )
-            font-size: 1.0rem     
+            font-size: 1.0rem
           @media screen and ( max-width: 500px )
             overflow-y: auto
             font-size: 0.8rem
-          ::-webkit-scrollbar 
+          ::-webkit-scrollbar
             width: 3px
-          ::-webkit-scrollbar-track 
+          ::-webkit-scrollbar-track
             background: #f1f1f1
-          ::-webkit-scrollbar-thumb 
+          ::-webkit-scrollbar-thumb
             background: $fourth
         .colorFade
           animation: colorFade 1.3s forwards
