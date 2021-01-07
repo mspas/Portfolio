@@ -138,8 +138,7 @@ const cardsData = [
     text:
       "Honestly, I run into C# and .NET by accident. That was due to tech stack of group project on university where I was responsible for " +
       "front-end layer ('Office Pathfinder' in project's section). I've also tried a Java Spring, it wasn't bad, but at the end of the day " +
-      "struggles with Maven project configuration (especially when you need to install a library from outside of the marketplace) made for me " +
-      "a assumption about C# and .NET as a royal couple bringing peace and prosperity. I also decided to stick with .NET also for my thesis project.",
+      "I find .NET to be more intuitive and less troublesome. I also decided to stick with .NET also for my thesis project.",
     comment:
       "Marriage between Henry VII Tudor and Elizabeth of York ended War of the Roses - last episode of 100-Years War. Tudors eventually came victorious " +
       "among the other noble families competeting for the English crown. Marriage between the members of two opposite factions bring finally " +
@@ -153,7 +152,7 @@ const cardsData = [
     text:
       "After Angular, I moved to React, which I was learning while making some smaller projects. It's my most recent and also the biggest intrest for now. " +
       "Mainly because it's more flexible, since it's more like a library than a framework. But still it can " +
-      "be really powerfull tool, React with Redux can surely compete with Angular in case of bigger projects.",
+      "be really powerfull tool, React with Redux can surely compete with Angular in case of larger projects.",
     comment:
       "Young Peter Romanov was a first heir to the Russian crown who traveled around Europe. During his journey he focused on learning foregin " +
       "cultures and policies. All for great modernization of his country after taking the rule. In the future, " +
@@ -189,7 +188,7 @@ const cardsData = [
     name: "Java",
     img: java,
     text:
-      "First typically OOP language that I was learning. I left Java for C# and get into .NET framework. Recently, due to my university courses, I got some basic knowledge abot Spring. Return to Java is still possible.",
+      "First typically OOP language that I was learning. I left Java for C# and get into .NET framework. Recently, due to my university courses, I got some basic knowledge abot Spring. Return to Java is not impossible.",
     comment:
       "Henry V Lancaster ruled at the late phase of 100-Years War. His reign was remember due to his victorious campaigns in France, which effected " +
       "with marriage with french princess assuring french throne for Henry's son. Unfortunetely Henry V died when his only son was an infant. Rule of baby-king " +
