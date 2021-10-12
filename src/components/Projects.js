@@ -264,6 +264,12 @@ class SkillBox extends React.Component {
               <span className="text-project">Description:</span>
               {this.state.activeSlide.desc}
             </p>
+            {this.state.activeSlide.demo.length > 0 && (
+              <p className={this.state.isChanging ? "text-fadeInOut" : ""}>
+                <span className="text-project">Demo:</span>
+                {this.state.activeSlide.demo}
+              </p>
+            )}
           </div>
         </div>
       </div>

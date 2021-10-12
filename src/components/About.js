@@ -9,7 +9,7 @@ class About extends React.Component {
     return (
       <div className="description" onClick={this.props.onClick}>
         <div className="description-text">
-          I'm computer science <span className="colorFade">student </span>
+          I'm computer science <span className="colorFade">graduate </span>
           located in Wrocław. Due to all university duties I've started my
           programming journey from C, C++ and Java. However, after some time
           (precisely, after my uni project "Office Pathfinder", more in

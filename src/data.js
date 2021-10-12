@@ -13,23 +13,30 @@ import downloader from "./assets/downloader.jpg";
 import nothing from "./assets/nothing.jpg";
 import shitw from "./assets/shitw.jpg";
 import port from "./assets/port.jpg";
+import bench from "./assets/benchmark.jpg";
 
 const projectsDetails = [
   {
     title: "Pen & Paper",
     gitURL: "https://github.com/mspas/Pen-and-paper",
-    link: "",
+    link: "https://penandpaperdemo.azurewebsites.net/home",
     text: "Social media, forum, classic RPG games",
-    tech: "Angular 8, C#, .NET Core 2.0",
+    tech: "Angular 8, C#, .NET Core 3.1",
     img: pap,
     desc:
-      "The 'social media' module of this app I made for my thesis. What I mean by 'social-media' is user profiles, friends lists, creating events " +
-      "and private messages. Client APP was made with Angular 5, when API with .NET Core 2.0 and Entity Framework. After that I created also a forum module. " +
-      "Then I reworked the whole graphic desing. After that I reworked API, since I wasn't really happy how it was done. Then I reworked the whole " +
-      "graphic desing again... Currently, after a break that I've made for other projects and uni duties, I came back to this one and with gained " +
-      "expirience and knowledge, I also updated client APP to 8th version of Angular, and converted styles to use preprocessor SASS." +
-      "Due to all that reworks, the app is not finished yet. Also I'm not satisfied enough to publish a live demo yet, but I'm working on that. " +
-      "Lately, I added a proper pagination for topics on forum, the same I will need to do for searching functionality and private messages. ",
+      "The 'social media' module of this app I made for my bachelor thesis. What I mean by 'social-media' is user profiles, friends lists, creating events " +
+      "and private messages. Client APP was made with Angular 5, when API with .NET Core 2.0 and Entity Framework. After that I was coming back to this project. " +
+      "from time to time. Once I redesigned layouts and added forum module, other time I reworked API, since I wasn't really happy how it was done. Rercently, backed with new experience " +
+      "and knowledge I've returned to it in order to prepare the app for deployment. However, when I saw my code from around 2 years ago, I decided that I should not even bother " +
+      "with deployment of such a monstrosity. After almost a month of reworking the client app, I'm finally ready to present its current stage. " +
+      "In this demo version you can log in as a prepared demo-user (login: kazio7, password: demoacc), however in this case all of the implementation that affects the state of whole app are disabled. " +
+      "Meaning you can only click-around the app, send a message to someone, post new forum message, but you cannot change profile picture or throw away players from existing games. " +
+      "On the other hand if you decide to create new account, all the functionalities will be available. This vesion of the app allows creating and signing-in to the accounts, " +
+      "searching players or games, creating new ones, creating and deleting topics and messages in game's forum, managing players within the game, sending private messages. " +
+      "Also in case of small funny thing that I've implemented here, it is worth to mention about uploading own profile images and also posting forum-messages with images inside. " +
+      "However the app is not completely finished, since it still needs implementation for refreshing access tokens for logged users and probably some SignalR usage for pushing " +
+      "notifications from the server.",
+    demo: "login: kazio7, password: demoacc or create your own",
   },
   {
     title: "Album",
@@ -39,11 +46,32 @@ const projectsDetails = [
     tech: "React, Redux, Node.js, MongoDB",
     img: album,
     desc:
-      "That one is my latest project, which I made for a local school. They collected quite a few old, historical photos and prepared a exhibition in local school. Then I decided that " +
+      "This online photo album is one of my latest projects, which I made for a local school. They collected quite a few old, historical photos and prepared a exhibition in local school. Then I offered that " +
       "I can help with publishing it to the whole local community. App is made with React with slight use of Redux. API is made with Node.js and MongoDB database. " +
       "I've prepared whole admin panel for uploading new photos and editing existing ones. To store images I'm using a 3rd party API - Cloudinary. " +
       "If it comes to some interesting features from a dev point ov view, I would mention - sliding gallery with thumbnails, " +
       "swiping images on mobile, fetching data from API with pagination but fired on scrolling down the content, uploading images through server.",
+    demo: "",
+  },
+  {
+    title: "Image Editor - Benchamark",
+    gitURL: "https://github.com/mspas/Image-Editor",
+    link: "https://mspas.github.io/Image-Editor/",
+    text: "JavaScript, asm.js and WebAssembly benchamark based on image editing",
+    tech: "React, asm.js, WebAssembly, C",
+    img: bench,
+    desc:
+      "That project was the base for my master thesis, which was exactly titled 'Comparative analysis of JavaScript, asm.js and WebAssembly technologies'. " +
+      "Long story short - I created some implementations for manipulating images in C language, then I compiled it to asm.js and WebAssembly modules, with use of Emscripten, " +
+      "in order to import them into the React app and compare their performance to their JavaScript equivalent implementation. It was possible due to the fact " +
+      "that I've worked on images represented by arrays of usigned 8-bit integers, so any complicated external tools were not needed, just operating on numbers in given manner. " +
+      "Looking at the most important conclusions of the thesis - the research proved that time of asm.js has already gone and it ended up with approximately 4% slowdown for V8 browsers in compare to JS, while being even 34% slower " +
+      "for Firefox. WebAssembly on the other hand came out to be faster above 50% in compare to JS on Chromium-based browsers, while Firefox resulted with much less significant " +
+      "improvement – around 16%. Further investigation showed that usage of the C malloc function was highly demanding for SpiderMonkey (the Firefox engine) and on " +
+      "its own it was almost doubling the execution time of the measured functionality, while for Chrome it was on average only 22% of influence. " +
+      "There was also exerienced an odd situation where WebAssembly is highly influenced by active browser's DevTool - being slowed down by 1.9 times in Chromium-based " +
+      "browsers and even more than 3 times in Firefox, while slowdown of JavaScript in the same circumstances was about 10%.",
+    demo: "",
   },
   {
     title: "CheckIT",
@@ -57,6 +85,7 @@ const projectsDetails = [
       "phone close enough to the lecturer's phone, to mark his presence. This is the responsibility of the moblie module. Lecturer is using the browser app. He can check the " +
       "attendence list and for ex. export it to a file. Browser APP was my part of a project. Other modules are not deployed so you can see ony a demo version of my " +
       "module. This project was really fun that we needed to cooperate and manage our workflow. To sign in on demo version just type whatever as a login and password.",
+    demo: "type anything as login and password",
   },
   {
     title: "Office Pathfinder",
@@ -70,6 +99,7 @@ const projectsDetails = [
       "for client APP (I was one of them), 2 other for API and someone like project manager responsible for contacting with a company. We worked in a SCRUM-like workflow " +
       "with meetings in the company's office. And yes, it was as interesting expirience as it sounds. The application was a SVG map of the office where users could click " +
       "on each desk or room to check who they can found there or type a name and find person's workplace on map. APP also contained a Admin-Panel to manage whole necessary data.",
+    demo: "",
   },
   {
     title: "Clip Downloader",
@@ -82,6 +112,7 @@ const projectsDetails = [
       "I was thinking about some bigger project connected to Twitch clips, so to get a little bit into the topic i decided to make this app. User is " +
       "pasting URL of a Twitch clip or a YouTube video, after some validation, server is calling Twitch/YouTube APIs to get the video's informations " +
       "and then download it.",
+    demo: "",
   },
   {
     title: "Nothing.",
@@ -90,8 +121,8 @@ const projectsDetails = [
     text: "Landing page",
     tech: "React, Sass",
     img: nothing,
-    desc:
-      "Landing page made while learning React. It was first time with React ever. I just wanted to have some fun during getting a really brief overview of this library.",
+    desc: "Landing page made while learning React. It was first time with React ever. I just wanted to have some fun during getting a really brief overview of this library.",
+    demo: "",
   },
   {
     title: "So How Is The Weather",
@@ -103,6 +134,7 @@ const projectsDetails = [
     desc:
       "I wanted to make some simple project to refresh my Angular knowledge. So I did. The application is using OpenWeather API. User can check " +
       "weather due to the location data from the browser or search for any another city.",
+    demo: "",
   },
   {
     title: "About Me",
@@ -115,6 +147,7 @@ const projectsDetails = [
       "You are here right now. I wanted to make something nice with 3D-ish effects. It was quite fun, after all, especially when it finally worked. The best part of this project was figuring out how to make this " +
       "project-slider that you're looking at right now. The 'About' view is made of backgrounds which positions are changing based on a coursor positions. Mouse " +
       "handler that I used, I made previously for the project called 'Nothing'.",
+    demo: "",
   },
 ];
 
@@ -138,7 +171,7 @@ const cardsData = [
     text:
       "Honestly, I run into C# and .NET by accident. That was due to tech stack of group project on university where I was responsible for " +
       "front-end layer ('Office Pathfinder' in project's section). I've also tried a Java Spring, it wasn't bad, but at the end of the day " +
-      "I find .NET to be more intuitive and less troublesome. I also decided to stick with .NET also for my thesis project.",
+      "I find .NET to be more intuitive and less troublesome. I also decided to stick with .NET also for my bachelor thesis project.",
     comment:
       "Marriage between Henry VII Tudor and Elizabeth of York ended War of the Roses - last episode of 100-Years War. Tudors eventually came victorious " +
       "among the other noble families competeting for the English crown. Marriage between the members of two opposite factions bring finally " +
@@ -167,8 +200,8 @@ const cardsData = [
       "I wasn't learning JS from scratch, because I had some knowledge of programming, I started straight up with the frameworks " +
       "simultaniously filling my lack of knowledge in JS.",
     comment:
-      "I just wanted to mention Żółkiewski here for any reason. Especially when JS icon goes so well with jaguar skin on his armour.",
-    progress: 50,
+      "Just look how well JS icon goes with jaguar skin on Stefan Czarniecki's armour.",
+    progress: 60,
     develop: true,
   },
   {
@@ -181,20 +214,19 @@ const cardsData = [
       "Edward the Confessor reign was remembered as a peaceful time, but in reality even though the king was a honest man, he wasn't a independent " +
       "ruler, when three english earls held true power. Edward did not have any child and with his death the succession war fired. Eventually England " +
       "was conquered by the Normans under rule of William the Bastard.",
-    progress: 30,
+    progress: 20,
     develop: false,
   },
   {
     name: "Java",
     img: java,
-    text:
-      "First typically OOP language that I was learning. I left Java for C# and get into .NET framework. Recently, due to my university courses, I got some basic knowledge abot Spring. Return to Java is not impossible.",
+    text: "First typically OOP language that I was learning. I left Java for C# and get into .NET framework. Recently, due to my university courses, I got some basic knowledge abot Spring. Return to Java is not impossible.",
     comment:
       "Henry V Lancaster ruled at the late phase of 100-Years War. His reign was remember due to his victorious campaigns in France, which effected " +
       "with marriage with french princess assuring french throne for Henry's son. Unfortunetely Henry V died when his only son was an infant. Rule of baby-king " +
       "came with the chaos in english-french relation and breaks previous agreement. Lately, Henry VI will be called mad and dethroned. " +
       "Finally House of Tudors took over the english crown.",
-    progress: 30,
+    progress: 20,
     develop: false,
   },
 ];
